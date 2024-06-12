@@ -1,7 +1,6 @@
 
-    <link href="{{ asset('css/candidature.css') }}" rel="stylesheet">
-</head>
-<body>
+@extends('layouts.app')
+@section('content')
     <section>
         <h1 style="font-family: 'Nunito', sans-serif; text-align:center;font-weight: bold; ">Mes candidatures à Simplon</h1>
         <div class="trait"></div>
@@ -50,3 +49,4 @@
             </div>
         </div>
     </section>
+    @endsection
