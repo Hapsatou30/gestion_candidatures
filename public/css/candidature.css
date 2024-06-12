@@ -1,0 +1,30 @@
+.trait {
+    width: 150px; 
+    height: 2px;
+    background-color: #000000;
+    margin: 0 auto;
+    margin-top:20px
+  }
+  
+  .carres {
+    display: flex;
+    justify-content: center; 
+  }
+  
+  .carre {
+    width: 15px;
+    height: 15px;
+    background-color: #000000;
+    margin: -10px 2px; 
+    transform: rotate(45deg); 
+  }
+  .large-row {
+            height: 100px;
+  }
+  .trait1 {
+    width: 150px; 
+    height: 1.5px;
+    background-color: #000000; 
+    margin: 0 auto;
+    margin-top:20px
+  }
