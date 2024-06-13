@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+:root{
+    --couleur-pricinpal:#CE0033;
+    --police:Nunito Sans;
+    --taille-titre:30px;
+    --taille-texte:18px;
+}
+body{
+    font-family: var(--police);
+    overflow-x: hidden;
+}
+
+.login-container {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+}
+.login-form form{
+    width: 500px;
+    margin-left: 100px;
+}
+h2{
+    color: var(--couleur-pricinpal);
+    font-size: var(--taille-titre);
+    text-align: center;
+    line-height: 42px;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+.form-control{
+    padding: 10px;
+    box-sizing: border-box;
+}
+.btn-custom{
+    width: 100%;
+            padding: 10px;
+            background-color: #CE0033;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: var(--taille-texte);
+}
+.btn-custom:hover{
+    width: 100%;
+    padding: 10px;
+    background-color: #CE0033;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+   
+}
+.form-group a {
+    display: block;
+    margin-top: 5px;
+    text-decoration: none;
+    color: #CE0033;
+    text-align: right;
+    margin-bottom: 10px;
+}
