@@ -28,6 +28,10 @@ Route::get('/inscription', function () {
 Route::get('/mescandidatures',[CandidatureController::class, 'affichageListe'] );
 Route::post('/sauvegardeCandidature', [CandidatureController::class, 'sauvegardeCandidature']);
 
-    Route::get('/liste_candidature', function () {
+Route::get('/liste_candidature', function () {
         return view('candidats/candidature');
     });
+
+Route::get('/espacePersonnel', function(){
+    return view('personnels/espacePerso');
+});
