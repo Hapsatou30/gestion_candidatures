@@ -20,4 +20,9 @@ class CandidatureController extends Controller
     Candidature::create($request->all());
     return back();
     }
+    public function affichageListe(){
+        $candidatures = Candidature::with('formation')->get();
+        return view('candidats/candidature', compact('candidatures'));
+    }
+   
 }

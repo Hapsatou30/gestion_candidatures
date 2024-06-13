@@ -23,29 +23,16 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($candidatures as $candidature)
                             <tr style="height: 100px;">
-                                <td>P7 Dev Web et Web Mobile</td>
-                                <td>Développeur Web + IOT</td>
-                                <td>Retenu</td>
+                                <td>{{ $candidature->formation->cohorte }}</td>
+                                <td>{{ $candidature->formation->nom }}</td>
+                                <td>{{ ucfirst($candidature->etat) }}</td>
                             </tr>
-                            <tr style="height: 100px;">
-                                <td>P5 Ref Dig</td>
-                                <td>Référent Digital</td>
-                                <td>Nom retenu</td>
-                            </tr>
-                            <tr style="height: 100px;">
-                                <td>P4 Dev Web Front-end</td>
-                                <td>Développeur Web + IOT</td>
-                                <td>Nom retenu</td>
-                            </tr>
-                            <tr style="height: 100px;">
-                                <td>P10 SAS Women in Tech</td>
-                                <td>SAS Hackeuse</td>
-                                <td>Retenu</td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
-                </div>     
+                </div>                     
             </div>
         </div>
     </section>

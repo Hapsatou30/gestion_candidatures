@@ -19,7 +19,5 @@ Route::get('/inscription', function () {
 
 });
 
-Route::get('/', function () {
-    return view('candidats/candidature');
-});
+Route::get('/mescandidatures',[CandidatureController::class, 'affichageListe'] );
 Route::post('/sauvegardeCandidature', [CandidatureController::class, 'sauvegardeCandidature']);
