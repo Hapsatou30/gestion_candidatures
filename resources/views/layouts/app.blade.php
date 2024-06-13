@@ -33,6 +33,7 @@
                     <li class="nav-item active"> <a class="nav-link" href="/" data-abc="true" style="color: white;">Accueil</a> </li>
                     <li class="nav-item"> <a class="nav-link" href="/formation" data-abc="true" style="color: white;">Formations</a> </li>
                     <li class="nav-item"> <a class="nav-link" href="/mescandidatures" data-abc="true" style="color: white;">Mes candidatures</a> </li>
+
                 </ul>
             </div>
             <div class="bouton">

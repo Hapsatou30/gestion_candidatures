@@ -1,15 +1,14 @@
 @extends('layouts.app')
 @section('content')
     <main class="container">
-        <div class="container text-start">
-            <div class="row">
-                <div class="col p-5">
-                    <h1 class="text-danger justify-content-start mb-5">Trouver votre formation en 2
+        <div class="banniere text-start">
+            <div class="row d-flex">
+                <div class="col mt-3">
+                    <h1 class="text-danger justify-content-start mb-3">Trouver votre formation en 2
                         clics
                     </h1>
-                    <div class='note'>
-                        <button class='btn btn-danger rounded-pill'>
-                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                    <div class='note mb-5'>
+                        <button class='btn note btn-danger rounded-pill'>
                             <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
                             <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
                             <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
@@ -17,10 +16,10 @@
                             96% de nos apprennant recommandent Simplon Formation
                         </button>
                     </div>
-                    <div class="container h-100">
-                        <div class="d-flex justify-content-center h-100">
+                    <div class="recherche">
+                        <div class="d-flex justify-content-center">
                             <div class="search">
-                                <i class="fa fa-search" style="color: rgb(212, 10, 10);"></i>
+                                <i class="fa fa-search m-3" style="color: rgb(212, 10, 10);"></i>
                                 <input class="search_input" type="text" name=""
                                     placeholder="Mot clés, thématique de formation....">
                                 <a href="#" class="search_icon">RECHERCHER</a>
@@ -89,55 +88,24 @@
 
                     <div class="col">
                         <div class="container text-center">
+                            
                             <div class="row row-cols-2">
+                                @foreach ($formations as $formation) 
                                 <div class="col">
-                                 <a href="">
+                                                  
+                                 <a href="{{ route('detailFormation', $formation->id) }}">
                                     <div class="card mb-5" style="width: 18rem;">
-                                        <img src="{{ asset('images/formation_card.png') }}" class="card-img-top"
+                                        <img src="{{ $formation->image }}" class="card-img-top"
                                             alt="formation">
                                         <div class="card-body">
                                             <p class="card-text">
-                                                ADEFNIPA</p>
+                                                {{ $formation->nom}}</p>
                                         </div>
                                     </div>
                                  </a>
+                                
                                 </div>
-                                <div class="col">
-                                    <a href="">
-                                       <div class="card mb-5" style="width: 18rem;">
-                                           <img src="{{ asset('images/formation_card.png') }}" class="card-img-top"
-                                               alt="formation">
-                                           <div class="card-body">
-                                               <p class="card-text">
-                                                   ADEFNIPA</p>
-                                           </div>
-                                       </div>
-                                    </a>
-                                   </div>
-                                   <div class="col">
-                                    <a href="">
-                                       <div class="card" style="width: 18rem;">
-                                           <img src="{{ asset('images/formation_card.png') }}" class="card-img-top"
-                                               alt="formation">
-                                           <div class="card-body">
-                                               <p class="card-text">
-                                                   ADEFNIPA</p>
-                                           </div>
-                                       </div>
-                                    </a>
-                                   </div>
-                                   <div class="col">
-                                    <a href="">
-                                       <div class="card" style="width: 18rem;">
-                                           <img src="{{ asset('images/formation_card.png') }}" class="card-img-top"
-                                               alt="formation">
-                                           <div class="card-body">
-                                               <p class="card-text">
-                                                   ADEFNIPA</p>
-                                           </div>
-                                       </div>
-                                    </a>
-                                   </div>
+                                @endforeach
 
                             </div>
                         </div>

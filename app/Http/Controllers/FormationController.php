@@ -10,11 +10,14 @@ class FormationController extends Controller
 {
 
     public function index(){
-        return view('formations.index');
+        $formations = Formation::all();
+        return view('formations.index', compact('formations'));
     }
 
-    public function detail(){
-        return view ('formations.detail-formation');
+    public function detail($id){
+        $formations = Formation::all();
+        $formation = Formation::find($id);
+        return view ('formations.detail-formation',compact('formation', 'formations'));
     }
 
     public function AjouterFormation(){

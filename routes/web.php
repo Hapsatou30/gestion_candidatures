@@ -9,6 +9,7 @@ use App\Http\Controllers\CandidatureController;
 
 
 
+
 //routes candidat et candidature
 Route::get('/postuler',[CandidatureController::class,'postuler']);
 Route::post('/sauvegardeCandidature', [CandidatureController::class, 'sauvegardeCandidature']);
@@ -29,6 +30,7 @@ Route::delete('/formations/{id}', [FormationController::class, 'destroy'])->name
 //routes authentification pour le candidat
 Route::get('/connexion',[CandidatController::class,  'connexion'])->name(('login'));
 Route::post('/connecter',[CandidatController::class,  'connecter'])->name('connecter');
+
 Route::get('/inscription', [CandidatController::class, 'inscription'])->name('inscription');
 Route::post('/inscription', [CandidatController::class, 'inscrire'])->name('inscrire');
 Route::delete('deconnexion', [CandidatController::class, 'deconnexion'])->name('deconnexion');
@@ -39,20 +41,8 @@ Route::get('/', [CandidatController::class, 'index'])->name('accueil');
 //routes personnels
 Route::get('/espacePersonnel',[PersonnelController::class,'voirEspace']);
 
+
 //routes authentifcation personnels
 Route::get('/connexionPersonnel', [PersonnelController::class, 'connexion']);
 Route::post('/verification', [PersonnelController::class, 'verification']);
-
-
-
-
-
-
-
-
-
-
-
-    
-    
 
