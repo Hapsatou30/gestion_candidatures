@@ -1,11 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/nav-bar.css') }}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link href="{{ asset('css/candidature.css') }}" rel="stylesheet">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Gestion des candidatures</title>
@@ -13,24 +19,26 @@
 
 <body>
 
-    <nav class="navbar text-dark navbar-expand-lg cusSticky" style="background-color: #ffffff;">
-        <a class="navbar-brand ml-5" href="#" data-abc="true"><img src="{{ asset('images/logo.png') }}"
-                alt="logo" width="100" height="100"></a>
+   <header>
+    <nav class="navbar  navbar-expand-lg cusSticky" >
+        <a class="navbar-brand ml-5 " href="#" data-abc="true"><img src="{{ asset('images/logo.png') }}"
+                alt="logo" width="90"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
             aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="container justify-content-center">
-            <ul class="navbar fs-3 text-dark bg-white navbar-nav justify-content-center">
-                <li class="nav-item active"> <a class="nav-link" href="#" data-abc="true">Accueil</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="#" data-abc="true">Formations</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="#" data-abc="true">Mes candidatures</a> </li>
+            <ul class="navbar fs-3  navbar-nav justify-content-center">
+                <li class="nav-item active"> <a class="nav-link" href="#" data-abc="true" style=" color: white;">Accueil</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="#" data-abc="true" style=" color: white;">Formations</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="#" data-abc="true" style=" color: white;">Mes candidatures</a> </li>
             </ul>
         </div>
         <div class="bouton">
-            <a href="" class="btn btn-danger me-5">Connexion</a>
+            <a href="" class="btn me-5" style="background-color: #ffffff; color:#CE0033">Connexion</a>
         </div>
     </nav>
+   </header>
     @yield('content')
 
 
