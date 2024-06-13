@@ -9,3 +9,4 @@ Route::get('/', function () {
 
 
 Route::get('formation', [FormationController::class, 'index']);
+Route::get('formation/detail', [FormationController::class, 'detail']);
