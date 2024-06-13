@@ -18,9 +18,9 @@ Route::get('/connexion', function () {
 
 Route::get('/inscription', function () {
     return view('candidats.inscription');
+
 });
 
-    Route::get('/liste_candidature', function () {
-        return view('candidats/candidature');
-    });
-
+Route::get('/', function () {
+    return view('candidats/candidature');
+});
