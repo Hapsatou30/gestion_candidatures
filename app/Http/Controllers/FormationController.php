@@ -14,12 +14,11 @@ class FormationController extends Controller
      }
 
         public function AjouterFormationTraitement(Request $request){
-        /*dd($request->all());*/
         $request->validate([
             'nom' => 'required',
             'description' => 'required',
             'competences' => 'required',
-            'debouches' => 'required', // Validation d'image si elle est fournie
+            'debouches' => 'required', 
             'date_debut' => 'required',
             'date_fin' => 'required',
             'date_limite' => 'required',
@@ -44,19 +43,6 @@ class FormationController extends Controller
         $formation->personnel_id = $request->personnel_id;
         $formation->save();
 
-        /*return redirect('/')->with('status', "Le bien a bien été ajouté avec succés.");*/
-       /* ('nom');
-            $table->text('description');
-            $table->text('competences');
-            $table->text('debouches');
-            $table->date('date_debut');
-            $table->date('date_fin');
-            $table->date('date_limite');
-            $table->string('image')->nullable();
-            $table->string('cohorte');
-            $table->enum('statut', ['ouverte', 'fermée'])->default('ouverte');
-            $table->unsignedBigInteger('personnel_id');
-            $table->foreign('personnel_id')->references('id')->on('personnels')->onDelete('cascade');
-            $table->timestamps();*/
+        return back()->with('status', "La formation a bien été ajouté avec succés.");
     }
 }
