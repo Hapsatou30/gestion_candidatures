@@ -8,7 +8,7 @@ use App\Http\Controllers\PersonnelController;
 
 Route::get('/index',[CandidatureController::class,'postuler']);
 Route::get('/index', function () {
-    return view('candidantures.index');
+    return view('candidantures.index');});
 
 Route::get('/', function () {
     return view('candidats/profil1');
