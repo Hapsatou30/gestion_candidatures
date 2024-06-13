@@ -12,9 +12,6 @@ Route::get('/index', function () {
 
 
 Route::get('formation', [FormationController::class, 'index']);
-
-
-
 Route::get('/index', function () {
     return view('candidantures.index');
 });
@@ -50,3 +47,6 @@ Route::get('/espacePersonnel', function(){
 });
 Route::get('/connexionPersonnel', [PersonnelController::class, 'connexion']);
 Route::post('/verification', [PersonnelController::class, 'verification']);
+
+Route::get('formation/detail', [FormationController::class, 'detail']);
+

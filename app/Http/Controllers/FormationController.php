@@ -9,4 +9,8 @@ class FormationController extends Controller
     public function index(){
         return view('formations.index');
     }
+
+    public function detail(){
+        return view ('formations.detail-formation');
+    }
 }
