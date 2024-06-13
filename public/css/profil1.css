@@ -121,4 +121,17 @@
     font-size: 25px;
     font-weight: bold;
 }
+.info button img{
+    margin-bottom: 12px;
+    margin-left: 10px;
+}
+.container .retourner{
+    width: 175px;
+    height: 71px;
+    background-color: var(--couleur-pricinpal);
+    color: #ffffff;
+    font-size: 25px;
+    font-weight: bold;
+}
+
 
