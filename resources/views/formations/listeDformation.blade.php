@@ -85,7 +85,7 @@
                     <div class="dashboard-container">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <h1>La liste de nos différentes formations</h1>
-                            <a href="#" class="add-button">Ajouter une formation</a>
+                            <a href="/formations/ajouter" class="add-button">Ajouter une formation</a>
                             
                         </div>
                         <table>

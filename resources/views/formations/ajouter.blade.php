@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container">
+    <div class="container" style="margin-top:50px;">
+      <a href="{{ url()->previous() }}" class="btn btn-primary btn-sm">Retour</a>
         <div class="row">
             <div class="col s12">
                 <h1>AJOUTER UNE FORMATION</h1>

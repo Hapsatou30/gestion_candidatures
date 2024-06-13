@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Validator;
 
 class CandidatController extends Controller
 {
+    
+    public function profil()
+    {
+        return view('candidats/profil1');
+    }
     public function inscription()
     {
         return view('candidats.inscription');
@@ -122,5 +127,10 @@ class CandidatController extends Controller
     {
         Auth::logout();
         return redirect('connexion');
+    }
+    public function show($id)
+    {
+        $candidat = Candidat::findOrFail($id);
+        return view('candidats/profil1', compact('candidat'));
     }
 }

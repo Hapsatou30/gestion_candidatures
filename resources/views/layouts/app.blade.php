@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/nav-bar.css') }}">
+    
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
@@ -30,9 +30,9 @@
             </button>
             <div class="container justify-content-center">
                 <ul class="navbar fs-3 navbar-nav justify-content-center">
-                    <li class="nav-item active"> <a class="nav-link" href="#" data-abc="true" style="color: white;">Accueil</a> </li>
-                    <li class="nav-item"> <a class="nav-link" href="#" data-abc="true" style="color: white;">Formations</a> </li>
-                    <li class="nav-item"> <a class="nav-link" href="#" data-abc="true" style="color: white;">Mes candidatures</a> </li>
+                    <li class="nav-item active"> <a class="nav-link" href="/" data-abc="true" style="color: white;">Accueil</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="/formation" data-abc="true" style="color: white;">Formations</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="/mescandidatures" data-abc="true" style="color: white;">Mes candidatures</a> </li>
                 </ul>
             </div>
             <div class="bouton">

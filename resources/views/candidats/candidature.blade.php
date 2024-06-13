@@ -1,7 +1,7 @@
 
 @extends('layouts.app')
 @section('content')
-    <section>
+    <section style="margin-top:50px;">
         <h1 style="font-family: 'Nunito', sans-serif; text-align:center;font-weight: bold; ">Mes candidatures à Simplon</h1>
         <div class="trait"></div>
         <div class="carres">

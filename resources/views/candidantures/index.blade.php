@@ -85,16 +85,6 @@
                         </select>
                     </div>
 
-                    <!-- Champ pour l'état de la candidature (en_attente, accepté, rejeté) -->
-                    <div class="form-group">
-                        <label for="etat">État de la candidature</label>
-                        <select id="etat" name="etat" class="form-control" required>
-                            <option value="en_attente">En attente</option>
-                            <option value="accepté">Accepté</option>
-                            <option value="rejeté">Rejeté</option>
-                        </select>
-                    </div>
-
                     <!-- Champ pour la motivation du candidat -->
                     <div class="form-group">
                         <label for="motivation">Motivation</label>

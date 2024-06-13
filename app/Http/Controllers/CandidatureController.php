@@ -15,7 +15,6 @@ class CandidatureController extends Controller
         $candidat = Candidat::all();
         return view('candidantures.index', compact('formations', 'candidat'));
     }
-    
     //Methode qui permet de sauvegarder une candidature
     public function sauvegardeCandidature(Request $request){
     Candidature::create($request->all());

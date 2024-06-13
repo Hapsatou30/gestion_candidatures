@@ -39,5 +39,8 @@ class PersonnelController extends Controller
         }
     }
     
-
+    public function voirEspace()
+    {
+        return view('personnels/espacePerso');
+    }
 }
