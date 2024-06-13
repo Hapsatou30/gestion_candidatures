@@ -86,6 +86,7 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <h1>La liste de nos différentes formations</h1>
                             <a href="#" class="add-button">Ajouter une formation</a>
+                            
                         </div>
                         <table>
                             <thead>
@@ -105,7 +106,15 @@
                                     <td class="actions">
                                         <a href="#" class="view-button" title="Voir détails"><i class="fas fa-eye"></i></a>
                                         <a href="#" class="edit-button" title="Modifier"><i class="fas fa-edit"></i></a>
-                                        <a href="#" class="delete-button" title="Supprimer"><i class="fas fa-trash"></i></a>
+                                        
+                                        <form action="{{ route('formations.destroy', $formation->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="delete-button" title="Supprimer"><i class="fas fa-trash"></i></button>
+                                        </form>
+
+
+                                        
                                     </td>
                                    </tr>
                                    @endforeach

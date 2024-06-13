@@ -9,6 +9,11 @@ Route::get('/', function () {
 // affichage du liste sur le dashboad
 Route::get('/formations', [FormationController::class, 'listeDformation']);
 
+//pour la suppression
+Route::delete('/formations/{id}', [FormationController::class, 'destroy'])->name('formations.destroy');   
+
+
+
 
 
 

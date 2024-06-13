@@ -14,10 +14,18 @@ public function listeDformation()
         $formations = Formation::all();
         return view('formations.listeDformation', compact('formations'));
     }
-
-
+    public function destroy($id)
+   {
+       // Suppression de la formation
+       $formation = Formation::findOrFail($id);
+       $formation->delete();
+   
+       // Retourne en arriere
+       return back()->with('success', 'Formation supprimée avec succès');  
+   }
+   
     
-}
+}  
 
 
 
