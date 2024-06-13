@@ -13,12 +13,18 @@
 body{
     font-family: var(--police);
 }
+header{
+    background-color: #CE0033;
+}
 .navbar{
     justify-items: center;
     justify-content: center;
 }
+.navbar-brand {
+    margin-left: 20px;
+}
 .navbar .nav-item{
-    color: black;
+    color: white;
     font-family:var(--police) ;
     font-size: var(--taille-texte);
     font-weight: bold;

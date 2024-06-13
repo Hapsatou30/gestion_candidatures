@@ -135,15 +135,15 @@
             <h2>Notre Impact</h2>
             <div class="counters">
                 <div class="counter">
-                    <span class="count">20000</span>
+                    <span class="count">+20000</span>
                     <span>Personnes formées</span>
                 </div>
                 <div class="counter">
-                    <span class="count">96</span>
+                    <span class="count">96%</span>
                     <span>Sorties positives</span>
                 </div>
                 <div class="counter">
-                    <span class="count">250</span>
+                    <span class="count">+250</span>
                     <span>Partenaires</span>
                 </div>
                 <div class="counter">
