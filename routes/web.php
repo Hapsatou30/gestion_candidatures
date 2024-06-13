@@ -27,3 +27,6 @@ Route::get('/connexion', function () {
     return view('candidats.connexion');
 });
 
+Route::get('/inscription', function () {
+    return view('candidats.inscription');
+});
