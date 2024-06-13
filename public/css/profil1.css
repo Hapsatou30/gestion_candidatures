@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+
+}
+:root{
+    --couleur-pricinpal:#CE0033;
+    --police:Nunito Sans;
+    --taille-titre:30px;
+    --taille-texte:18px;
+}
+.container-fluid{
+    height: 300px;
+    background-color:#CE0033;
+    border-radius: 30px;
+}
+.container{
+    margin-top: -240px;
+    background-color: #ffffff;
+    height:804px;
+}
+.container1{
+    display: flex;
+    padding-top:46px;
+}
+.profil{
+    margin-left: 30px;
+}
+.profil .nom1{
+    color:var(--couleur-pricinpal);
+    font-size:var(--taille-text) ;
+}
+.profil .nom2{
+    font-size:var(--taille-text) ;
+}   
+.container1 img{
+   width: 150px;
+   height: 150px;
+   margin-top: 5px;
+   margin-left: 780px;
+}
+.container2{
+    display: flex;
+    padding-top:100px;
+}
+.cv{
+    width: 500px;
+    height: 168px;
+    background-color: #FAFAF5;
+    border-radius: 24px;
+    border: 2px solid #E6E6E6;
+    display: flex;
+    margin-left: 20px;
+    margin-top: 50px;
+    
+}
+.container2 .cv1{
+    padding-top: 8px;
+
+}
+.container2 .cv2{
+    padding-left: 20px;
+    padding-top: 20px;
+    gap:100px;
+
+}
+.info{
+    width: 540px;
+    height: 374px;
+    background-color: #FAFAF5;
+    border-radius: 24px;
+    border: 2px solid #E6E6E6;
+    margin-left: 100px;
+}
+.h1{
+    font-size: var(--taille-titre);
+}
+.info h1{
+    text-align: center;
+}
+.cv button{
+    width: 62px;
+    height: 40px;
+    background-color:var(--couleur-pricinpal);
+    border-radius: 20px;
+}
+.info_perso{
+    display: flex;
+    margin-top: 20px;
+}
+.info_perso p{
+    font-size:var(--taille-text) ; 
+    
+}
+.info_perso .label{
+    margin-left:30px;
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+    font-weight: bold;  
+}
+.info_perso .input{
+    margin-left:150px ;
+    text-align:end;
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+}
+.info button{
+    width: 368px;
+    height: 48px;
+    border-radius: 8px;
+    background-color: var(--couleur-pricinpal);
+    margin-left: 70px;
+    display:inline-block;
+}
+.info button p{
+    display: inline;
+    color: #ffffff;
+    font-size: 25px;
+    font-weight: bold;
+}
+
