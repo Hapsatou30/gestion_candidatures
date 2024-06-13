@@ -2,13 +2,19 @@
 
 namespace App\Models;
 
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
-class Candidat extends Model
+class Candidat extends Authenticatable
 {
-    use HasFactory;
+    use HasFactory, Notifiable;
 
+      /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
 
     // Définition des champs pouvant être remplis via l'attribut `fillable`
     protected $fillable = [
@@ -31,4 +37,28 @@ class Candidat extends Model
                     ->withPivot('etat', 'motivation', 'biographie') // Champs supplémentaires de la table pivot
                     ->withTimestamps(); // Ajout des timestamps pour les enregistrements de la table pivot
     }
+
+    
+
+
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+    protected $hidden = [
+        'mot_passe',
+        'remember_token',
+    ];
+
+    /**
+     * Get the attributes that should be cast.
+     *
+      * @var array<string, string>
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'mot_passe' => 'hashed', // Utilisation de 'mot_passe'
+    ];
+
 }

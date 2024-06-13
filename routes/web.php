@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\FormationController;
+use App\Http\Controllers\CandidatController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FormationController;
+use App\Http\Controllers\PersonnelController;
 
 use App\Http\Controllers\CandidatureController;
-use App\Http\Controllers\PersonnelController;
 
 
 Route::get('/index',[CandidatureController::class,'postuler']);
@@ -31,9 +32,9 @@ Route::get('/accueil', function () {
     return view('accueil');
 });
 
-Route::get('/connexion', function () {
-    return view('candidats.connexion');
-});
+Route::get('/connexion',[CandidatController::class,  'connexion'])->name(('login'));
+Route::post('/connecter',[CandidatController::class,  'connecter'])->name('connecter');
+
 
 Route::get('/inscription', function () {
     return view('candidats.inscription');
@@ -41,6 +42,16 @@ Route::get('/inscription', function () {
 });
 Route::get('/mescandidatures',[CandidatureController::class, 'affichageListe'] );
 Route::post('/sauvegardeCandidature', [CandidatureController::class, 'sauvegardeCandidature']);
+
+
+Route::get('/inscription', [CandidatController::class, 'inscription'])->name('inscription');
+Route::post('/inscription', [CandidatController::class, 'inscrire'])->name('inscrire');
+Route::delete('deconnexion', [CandidatController::class, 'deconnexion'])->name('deconnexion');
+
+// Route::middleware(['auth'])->group(function () {
+    
+// });
+Route::get('/accueil', [CandidatController::class, 'index'])->name('accueil');
 
 
     Route::get('/liste_candidature', function () {

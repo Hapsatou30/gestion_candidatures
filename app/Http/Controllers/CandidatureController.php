@@ -9,6 +9,7 @@ use App\Models\Formation;
 
 class CandidatureController extends Controller
 {
+
     public  function postuler(){
         $formations = Formation::all();
         $candidat = Candidat::all();

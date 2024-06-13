@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+
 use App\Models\Personnel;
 
 class PersonnelController extends Controller
@@ -38,4 +39,5 @@ class PersonnelController extends Controller
         }
     }
     
+
 }

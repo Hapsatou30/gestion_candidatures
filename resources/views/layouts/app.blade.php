@@ -21,27 +21,34 @@
 </head>
 
 <body>
-
-   <header>
-    <nav class="navbar  navbar-expand-lg cusSticky" >
-        <a class="navbar-brand ml-5 " href="#" data-abc="true"><img src="{{ asset('images/logo.png') }}"
-                alt="logo" width="90"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
-            aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="container justify-content-center">
-            <ul class="navbar fs-3  navbar-nav justify-content-center">
-                <li class="nav-item active"> <a class="nav-link" href="#" data-abc="true" style=" color: white;">Accueil</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="#" data-abc="true" style=" color: white;">Formations</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="#" data-abc="true" style=" color: white;">Mes candidatures</a> </li>
-            </ul>
-        </div>
-        <div class="bouton">
-            <a href="" class="btn me-5" style="background-color: #ffffff; color:#CE0033">Connexion</a>
-        </div>
-    </nav>
-   </header>
+    <header>
+        <nav class="navbar navbar-expand-lg cusSticky">
+            <a class="navbar-brand ml-5" href="#" data-abc="true"><img src="{{ asset('images/logo.png') }}" alt="logo" width="90"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
+                aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="container justify-content-center">
+                <ul class="navbar fs-3 navbar-nav justify-content-center">
+                    <li class="nav-item active"> <a class="nav-link" href="#" data-abc="true" style="color: white;">Accueil</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="#" data-abc="true" style="color: white;">Formations</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="#" data-abc="true" style="color: white;">Mes candidatures</a> </li>
+                </ul>
+            </div>
+            <div class="bouton">
+                @guest <!-- Vérifie si l'utilisateur n'est pas connecté -->
+                    <a href="{{ route('login') }}" class="btn me-5" style="background-color: #ffffff; color:#CE0033">Connexion</a>
+                @else <!-- Si l'utilisateur est connecté, affiche le bouton de déconnexion -->
+                    <form action="{{ route('deconnexion') }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn me-5" style="background-color: #ffffff; color:#CE0033">Déconnexion</button>
+                    </form>
+                @endguest
+            </div>
+        </nav>
+    </header>
+    
     @yield('content')
 
 
