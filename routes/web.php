@@ -47,6 +47,7 @@ Route::post('/sauvegardeCandidature', [CandidatureController::class, 'sauvegarde
         return view('candidats/candidature');
     });
 
+
 Route::get('/liste_candidature', function () {
         return view('candidats/candidature');
     });
@@ -70,4 +71,9 @@ Route::get('/formations', [FormationController::class, 'listeDformation']);
 Route::delete('/formations/{id}', [FormationController::class, 'destroy'])->name('formations.destroy');   
 
 
+
+
+    Route::post('/modifier/formation-traitement/', [FormationController::class, 'ModifierFormationTraitement']);
+    Route::get('/modifier-formation/{id}', [FormationController::class, 'ModifierFormation']);
+    
 
