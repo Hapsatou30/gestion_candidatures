@@ -59,7 +59,7 @@
             border-radius: 5px;
             cursor: pointer;
         }
-        
+
         .google-button {
             background-color: #F3F9FA;
             margin-top: 10px;
@@ -74,7 +74,7 @@
             text-decoration: none;
         }
         .image-container {
-           
+
             background: url('images/imagea2.png') no-repeat center center;
             background-size: cover;
             width: 400px;
@@ -90,16 +90,30 @@
 <body>
     <div class="container">
         <div class="image-container"></div>
+        <!-- Contenu de la page -->
         <div class="form-container">
             <h2>Connexion</h2>
-            <form>
+            
+            <!-- Affichage des messages d'erreur -->
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            
+            <form action="{{ route('connecter') }}" method="POST">
+                @csrf
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="email">
+                    <input type="email" id="email" name="email" placeholder="email" value="{{ old('email') }}">
                 </div>
                 <div class="form-group">
-                    <label for="mot de passe">Mot de passe</label>
-                    <input type="mot de passe" id="mot de passe" name="mot de passe" placeholder="mot de passe">
+                    <label for="mot_passe">Mot de passe</label>
+                    <input type="password" id="mot_passe" name="mot_passe" placeholder="mot de passe">
                 </div>
                 <div class="form-group">
                     <a href="#">Mot de passe oublié?</a>
@@ -112,7 +126,7 @@
                 </div>
             </form>
             <div class="footer-text">
-                <p>Inscrivez-vous si vous n’avez pas de compte? <a href="#">S’inscrire</a></p>
+                <p>Inscrivez-vous si vous n’avez pas de compte? <a href="{{ route('inscription') }}">S’inscrire</a></p>
             </div>
         </div>
     </div>
