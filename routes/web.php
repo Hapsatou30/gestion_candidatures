@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FormationController;
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\CandidatureController;
 use App\Http\Controllers\PersonnelController;
 
@@ -10,10 +11,12 @@ Route::get('/index',[CandidatureController::class,'postuler']);
 Route::get('/index', function () {
     return view('candidantures.index');});
 
+
 Route::get('/', function () {
     return view('candidats/profil1');
 
 });
+
 
 
 
@@ -59,4 +62,12 @@ Route::get('formation/detail', [FormationController::class, 'detail']);
 
 Route::get('/formations/ajouter', [FormationController::class, 'AjouterFormation']);
 Route::post('/ajouter/formation-traitement', [FormationController::class, 'AjouterFormationTraitement']);
+
+// affichage du liste sur le dashboad
+Route::get('/formations', [FormationController::class, 'listeDformation']);
+
+//pour la suppression
+Route::delete('/formations/{id}', [FormationController::class, 'destroy'])->name('formations.destroy');   
+
+
 
