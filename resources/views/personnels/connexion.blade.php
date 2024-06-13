@@ -16,14 +16,20 @@
 </head>
 
 <body>
-
+    <main>
+        @if (session('status'))
+            <div class="alert alert-success" role="alert">
+                {{ session('status') }}
+            </div>
+        @endif
+    </main>
     <div class="row login-container">
         <div class=" col-4 login-image">
             <img src="{{ asset('images/personnel.jpg') }}" alt="connexion">
         </div>
         <div class="col-6 login-form">
             <h2>Connexion</h2>
-            <form method="POST" action="#">
+            <form method="POST" action="/verification">
                 @csrf
                 <div class="form-group mb-3">
                     <label for="email">Email</label>
@@ -31,7 +37,7 @@
                 </div>
                 <div class="form-group mb-3">
                     <label for="password">Mot de passe</label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Entrez votre mot de passe" required>
+                    <input type="password" class="form-control" id="password" name="mot_passe" placeholder="Entrez votre mot de passe" required>
                 </div>
                 <div class="form-group">
                     <a href="#">Mot de passe oublié?</a>

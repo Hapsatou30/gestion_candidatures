@@ -49,3 +49,4 @@ Route::get('/espacePersonnel', function(){
     return view('personnels/espacePerso');
 });
 Route::get('/connexionPersonnel', [PersonnelController::class, 'connexion']);
+Route::post('/verification', [PersonnelController::class, 'verification']);
