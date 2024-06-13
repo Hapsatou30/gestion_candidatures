@@ -28,3 +28,7 @@ Route::get('/inscription', function () {
     Route::get('/liste_candidature', function () {
         return view('candidats/candidature');
     });
+
+    Route::post('/modifier/formation-traitement/', [FormationController::class, 'ModifierFormationTraitement']);
+    Route::get('/modifier-formation/{id}', [FormationController::class, 'ModifierFormation']);
+    
