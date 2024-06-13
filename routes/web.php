@@ -6,6 +6,12 @@ use App\Http\Controllers\CandidatureController;
 
 
 Route::get('/index',[CandidatureController::class,'postuler']);
+Route::get('/index', function () {
+    return view('candidantures.index');
+});
+
+
+Route::get('formation', [FormationController::class, 'index']);
 
 
 
@@ -27,10 +33,18 @@ Route::get('/inscription', function () {
     return view('candidats.inscription');
 
 });
-
 Route::get('/mescandidatures',[CandidatureController::class, 'affichageListe'] );
 Route::post('/sauvegardeCandidature', [CandidatureController::class, 'sauvegardeCandidature']);
+
 
     Route::get('/liste_candidature', function () {
         return view('candidats/candidature');
     });
+
+Route::get('/liste_candidature', function () {
+        return view('candidats/candidature');
+    });
+
+Route::get('/espacePersonnel', function(){
+    return view('personnels/espacePerso');
+});
