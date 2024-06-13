@@ -1,13 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CandidatureController;
 
 
+Route::get('/index',[CandidatureController::class,'postuler']);
 
-
-Route::get('/index', function () {
-    return view('candidantures.index');
-});
 Route::get('/accueil', function () {
     return view('accueil');
 });
@@ -24,3 +22,4 @@ Route::get('/inscription', function () {
 Route::get('/', function () {
     return view('candidats/candidature');
 });
+Route::post('/sauvegardeCandidature', [CandidatureController::class, 'sauvegardeCandidature']);
