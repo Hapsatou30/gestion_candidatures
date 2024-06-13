@@ -3,7 +3,7 @@
 use App\Http\Controllers\FormationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CandidatureController;
-
+use App\Http\Controllers\PersonnelController;
 
 Route::get('/index',[CandidatureController::class,'postuler']);
 Route::get('/index', function () {
@@ -48,3 +48,4 @@ Route::get('/liste_candidature', function () {
 Route::get('/espacePersonnel', function(){
     return view('personnels/espacePerso');
 });
+Route::get('/connexionPersonnel', [PersonnelController::class, 'connexion']);
