@@ -22,3 +22,8 @@ Route::get('/index', function () {
 Route::get('/accueil', function () {
     return view('accueil');
 });
+
+Route::get('/connexion', function () {
+    return view('candidats.connexion');
+});
+
