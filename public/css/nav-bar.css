@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+:root{
+    --couleur-pricinpal:#CE0033;
+    --police:Nunito Sans;
+    --taille-titre:30px;
+    --taille-texte:18px;
+}
+body{
+    font-family: var(--police);
+}
+.navbar{
+    justify-items: center;
+    justify-content: center;
+}
+.navbar .nav-item{
+    color: black;
+    font-family:var(--police) ;
+    font-size: var(--taille-texte);
+    font-weight: bold;
+}
