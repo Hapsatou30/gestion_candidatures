@@ -39,8 +39,32 @@ class PersonnelController extends Controller
         }
     }
     
+// persodetails
     public function voirEspace()
     {
-        return view('personnels/espacePerso');
+        // Récupérer toutes les entrées de la table personnels
+        $personnels = Personnel::all();
+
+        // Passer les données à la vue
+        return view('personnels.espacePerso', compact('personnels'));
     }
+
+    public function show($id)
+    {
+        // Récupérer une seule entrée de la table personnels par ID
+        $personnel = Personnel::findOrFail($id);
+
+        // Passer les données à la vue des détails
+        return view('personnelDetails', compact('personnel'));
+    }
+
+
+    //
+    // public function index()
+    // {
+    //     $personnels = Personnel::all();
+    //     return view('personnels.index', compact('personnels'));
+    // }
+
+   
 }

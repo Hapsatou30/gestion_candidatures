@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 class FormationController extends Controller
 {
 
+    
     public function index(){
         $formations = Formation::all();
         return view('formations.index', compact('formations'));
@@ -119,4 +120,10 @@ public function ModifierFormationTraitement(Request $request)
     return back()->with('status', "La formation été modifié avec succés.");
 
 }
+
+public function formationshow()
+{
+    return view('formations.detailFormationb');
+}
+
 }
