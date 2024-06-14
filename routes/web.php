@@ -6,7 +6,9 @@ use App\Http\Controllers\FormationController;
 use App\Http\Controllers\PersonnelController;
 
 use App\Http\Controllers\CandidatureController;
-
+use App\Http\Controllers\EmailController;
+use App\Mail\MyEmail;
+use Illuminate\Support\Facades\Mail;
 
 
 
@@ -47,4 +49,14 @@ Route::get('/espacePersonnel',[PersonnelController::class,'voirEspace']);
 //routes authentifcation personnels
 Route::get('/connexionPersonnel', [PersonnelController::class, 'connexion']);
 Route::post('/verification', [PersonnelController::class, 'verification']);
+
+//route pour l'email
+
+Route::get('/send-my-email', function () {
+    $name = 'haps thiam';  // Remplacez par le nom que vous souhaitez utiliser
+    Mail::to('hapsthiam@gmail.com')->send(new MyEmail($name));
+    return 'Email has been sent!';
+});
+
+
 
