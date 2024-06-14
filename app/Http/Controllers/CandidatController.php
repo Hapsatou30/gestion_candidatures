@@ -133,4 +133,45 @@ class CandidatController extends Controller
         $candidat = Candidat::findOrFail($id);
         return view('candidats/profil1', compact('candidat'));
     }
+
+
+    // Modifier son profil
+    public function ModifierProfil($id)
+    {
+        $candidats = Candidat::findOrFail($id);
+        return view('candidats/modifier_profil', compact('candidats'));
+    }
+
+    public function ModifierProfilTraitement(Request $request)
+    {
+        /*dd($request->all());*/
+        $request->validate([
+            'nom' => 'required|string|max:255',
+            'prenom' => 'required|string|max:255',
+            'date_naissance' => 'required|date',
+            'telephone' => 'required|string|max:15',
+            'adresse' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:candidats',
+            'sexe' => 'required|in:M,F',
+            'mot_passe' => 'required|string|min:8',
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'cv' => 'nullable|mimes:pdf|max:10000',
+        ]);
+
+        // $candidat = Candidat::findOrFail($request->id);
+        $candidat = new Candidat();
+        $candidat->nom = $request->nom;
+        $candidat->prenom = $request->prenom;
+        $candidat->date_naissance = $request->date_naissance;
+        $candidat->telephone = $request->telephone;
+        $candidat->adresse = $request->adresse;
+        $candidat->email = $request->email;
+        $candidat->sexe = $request->sexe;
+        $candidat->mot_passe = $request->mot_passe;
+        $candidat->photo = $request->photoPath;
+        $candidat->cv = $request->cvPath;
+        $candidat->update();
+        return redirect('profil.show');
+    }
+
 }

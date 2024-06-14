@@ -21,6 +21,10 @@ Route::get('/profil/{id}', [CandidatController::class, 'show'])->name('profil.sh
 Route::get('/candidature/{id}', [CandidatureController::class, 'show'])->name('candidature.show');
 // Route::get('/candidature/cv/{id}', [CandidatureController::class, 'telechargerCV'])->name('candidature.show');
 
+// Route modification de profil
+Route::post('/modifier/profil-traitement/', [CandidatController::class, 'ModifierProfilTraitement'])->name('ModifierProfilTraitement');
+Route::get('/modifier-profil/{id}', [CandidatController::class, 'ModifierProfil']);
+
 //routes formations
 Route::get('/formation', [FormationController::class, 'index']);
 Route::get('formation/detail', [FormationController::class, 'detail']);
