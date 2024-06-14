@@ -119,9 +119,6 @@
                 <div class="form-group">
                     <input type="submit" value="Connexion">
                 </div>
-                <div class="form-group">
-                    <button type="button" class="google-button">Se connecter avec Google</button>
-                </div>
             </form>
             <div class="footer-text">
                 <p>Inscrivez-vous si vous n’avez pas de compte? <a href="{{ route('inscription') }}">S’inscrire</a></p>

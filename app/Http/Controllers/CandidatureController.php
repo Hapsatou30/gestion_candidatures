@@ -32,7 +32,7 @@ class CandidatureController extends Controller
     //Methode qui permet de sauvegarder une candidature
     public function sauvegardeCandidature(Request $request){
     Candidature::create($request->all());
-    return back();
+    return redirect('/');
     }
     public function affichageListe(){
         $candidatures = Candidature::with('formation')->get();

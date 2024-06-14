@@ -190,9 +190,6 @@
         <div class="form-group">
             <input type="submit" value="S'inscrire">
         </div>
-        <div class="form-group">
-            <button type="button" class="google-button">Se connecter avec Google</button>
-        </div>
     </form>
    </div>
     </div>

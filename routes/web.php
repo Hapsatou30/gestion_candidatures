@@ -12,29 +12,12 @@ use Illuminate\Support\Facades\Mail;
 
 
 
-//routes candidat et candidature
-Route::get('/postuler/{id}',[CandidatureController::class,'postuler'])->name('postuler');
-Route::post('/sauvegardeCandidature', [CandidatureController::class, 'sauvegardeCandidature']);
-// Route::get('/profil',  [CandidatController::class,'profil']);
-Route::get('/mescandidatures',[CandidatureController::class, 'affichageListe'] );
-
-Route::get('/candidature/{id}', [CandidatureController::class, 'show'])->name('candidature.show');
-
-// Route modification de profil
-Route::post('/modifier/profil-traitement/', [CandidatController::class, 'ModifierProfilTraitement'])->name('ModifierProfilTraitement');
-Route::get('/modifier-profil/{id}', [CandidatController::class, 'ModifierProfil']);
-
-Route::get('/profil', [CandidatController::class, 'show'])->name('profil.show');
 
 
 //routes formations
 Route::get('/formation', [FormationController::class, 'index'])->name('formation');
 Route::get('formation/detail/{id}', [FormationController::class, 'detail'])->name('detailFormation');
-Route::get('/formations/ajouter', [FormationController::class, 'AjouterFormation']);
-Route::get('/formations', [FormationController::class, 'listeDformation'])->name('listeFormation');
-Route::post('/modifier/formation-traitement/', [FormationController::class, 'ModifierFormationTraitement']);
-Route::get('/modifier-formation/{id}', [FormationController::class, 'ModifierFormation'])->name(('modifierFormation'));
-Route::delete('/formations/{id}', [FormationController::class, 'destroy'])->name('formations.destroy');  
+
 
 
 //routes authentification pour le candidat
@@ -48,10 +31,6 @@ Route::delete('/deconnexion', [CandidatController::class, 'deconnexion'])->name(
 //Accueil
 Route::get('/', [CandidatController::class, 'index'])->name('accueil');
 
-//routes personnels
-Route::get('/espacePersonnel',[PersonnelController::class,'voirEspace'])->name('espacePersonnel');
-
-
 //routes authentifcation personnels
 Route::get('/connexionPersonnel', [PersonnelController::class, 'connexion']);
 Route::post('/verification', [PersonnelController::class, 'verification']);
@@ -64,5 +43,28 @@ Route::get('/send-my-email', function () {
     return 'Email has been sent!';
 });
 
+//candidat et candidature
+Route::middleware(['auth', 'candidat'])->group(function (){
+Route::get('/postuler/{id}',[CandidatureController::class,'postuler'])->name('postuler');
+Route::post('/sauvegardeCandidature', [CandidatureController::class, 'sauvegardeCandidature']);
+Route::get('/mescandidatures',[CandidatureController::class, 'affichageListe'] );
+Route::get('/candidature/{id}', [CandidatureController::class, 'show'])->name('candidature.show');
+Route::post('/modifier/profil-traitement/', [CandidatController::class, 'ModifierProfilTraitement'])->name('ModifierProfilTraitement');
+Route::get('/modifier-profil/{id}', [CandidatController::class, 'ModifierProfil']);
+Route::get('/profil', [CandidatController::class, 'show'])->name('profil.show');
 
 
+});
+
+Route::middleware(['personnel'])->group(function () {
+    //routes personnels
+Route::get('/espacePersonnel',[PersonnelController::class,'voirEspace'])->name('espacePersonnel');
+Route::post('/modifier/formation-traitement/', [FormationController::class, 'ModifierFormationTraitement']);
+Route::get('/modifier-formation/{id}', [FormationController::class, 'ModifierFormation'])->name(('modifierFormation'));
+Route::delete('/formations/{id}', [FormationController::class, 'destroy'])->name('formations.destroy');  
+Route::get('/formations/ajouter', [FormationController::class, 'AjouterFormation']);
+Route::get('/formations', [FormationController::class, 'listeDformation'])->name('listeFormation');
+
+
+
+});

@@ -47,7 +47,8 @@
                 <div class="dropdown">
                     
                     <a class="dropdown-toggle px-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img class="rounded-circle" src="{{asset('images/logo.png')}}" style="width:50px;">
+                        {{-- <img class="rounded-circle" src="{{asset('images/logo.png')}}" style="width:50px;"> --}}
+                        <img class="rounded-circle" src="{{ asset('storage/' . Auth::user()->photo)}}" style="width:50px">
                     </a>
                   
                     <ul class="dropdown-menu">
