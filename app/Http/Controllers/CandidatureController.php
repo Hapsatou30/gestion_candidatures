@@ -34,8 +34,13 @@ class CandidatureController extends Controller
     Candidature::create($request->all());
     return redirect('/');
     }
-    public function affichageListe(){
-        $candidatures = Candidature::with('formation')->get();
+    public function affichageListe()
+    {
+        $candidatId = Auth::id();
+        $candidatures = Candidature::with('formation')
+                                   ->where('candidat_id', $candidatId)
+                                   ->get();
+        
         return view('candidats/candidature', compact('candidatures'));
     }
     public function show($id)
