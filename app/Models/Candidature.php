@@ -22,10 +22,14 @@ class Candidature extends Model
     {
         return $this->hasMany(Notification::class);
     }
-    // Modèle Candidature.php
+   
 public function formation()
 {
     return $this->belongsTo(Formation::class);
 }
+public function candidat()
+    {
+        return $this->belongsTo(Candidat::class);
+    }
 
 }

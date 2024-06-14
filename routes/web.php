@@ -16,6 +16,8 @@ Route::post('/sauvegardeCandidature', [CandidatureController::class, 'sauvegarde
 // Route::get('/profil',  [CandidatController::class,'profil']);
 Route::get('/mescandidatures',[CandidatureController::class, 'affichageListe'] );
 Route::get('/profil/{id}', [CandidatController::class, 'show'])->name('profil.show');
+Route::get('/candidature/{id}', [CandidatureController::class, 'show'])->name('candidature.show');
+Route::get('/candidature/cv/{id}', [CandidatureController::class, 'telechargerCV'])->name('candidature.show');
 
 //routes formations
 Route::get('/formation', [FormationController::class, 'index']);
