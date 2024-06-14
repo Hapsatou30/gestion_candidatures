@@ -15,31 +15,50 @@
 </head>
 
 <body>
-    <div class="top-bar">
-        <div class="logo">
-            <img src="{{ asset('images/logo.png') }}" alt="Logo">
+
+    <div class="wrapper d-flex">
+        <div class="sidebar">
+            <small class="text-muted p-5 mb-3">
+                <img src="{{asset('images/logo.png')}}" style="width:50%;">
+                <hr class="text-ligt" style="color:white;">
+            </small>
+            <ul>
+                <li><a href="#"><img src="images/deconnexion.svg" alt="">   Tableau de bord</a></li>
+                <li><a href="#"><img src="images/formation.svg" alt="">   Formations </a></li>
+                <li><a href="#"><img src="images/candidat.svg" alt="">   Candidats </a></li>
+            </ul>
+            <small class="text-muted px-3"></small>
+            <ul>
+               
+            </ul>
+            <small class="text-muted px-3"></small>
+            <ul>
+                
+                <li><a href="#"><img src="images/deconnexion.svg" alt="" style="background-color: ">   Deconnexion</a></li>
+            </ul>
         </div>
     </div>
-    <div class="sidebar">
-        <nav>
-            <ul>
-                <li>
-                    <a href="#">Tableau de bord</a>
-                </li>
-                <li>
-                    <a href="#">Formations</a>
-                </li>
-                <li>
-                    <a href="#">Candidats</a>
-                </li>
-                <li>
-                    <a href="#">Déconnexion</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-
     <div class="main-content">
+        <header class="header text-start" id="header">
+           
+            <div class="container h-100">
+                
+                <div class="d-flex justify-content-center h-100">
+                    <h1 class="m-5 text-danger">Dashboard</h1>
+                  <div class="search">
+                    <input class="search_input" type="text" name="" placeholder="Rechercer">
+                    <a href="#" class="search_icon"><i class="fa fa-search"></i></a>
+                  </div>
+                  <div class="header_img"> 
+                    <img class="rounded-circle" style="width: 50px; margin-top:50px; margin-left:50px;" src="{{ asset('images/banniere.png') }}" alt="">
+                    <i class="fa-solid fa-bell" style="color: #950909;"></i>
+                 </div>
+                </div>
+                
+              </div>
+               
+        </header>
+        @yield('content')
         <!-- Contenu principal de la page -->
     </div>
 
