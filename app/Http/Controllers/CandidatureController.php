@@ -28,18 +28,14 @@ class CandidatureController extends Controller
         return view('candidats/candidature', compact('candidatures'));
     }
     public function show($id)
-{
-    $candidature = Candidature::with('candidat')->findOrFail($id);
-    $candidat = $candidature->candidat;
-
-    // Calcul de l'âge
-    $age = Carbon::parse($candidat->date_naissance)->age;
-
-    return view('candidatures.details', compact('candidature', 'candidat', 'age'));
-}
-public function telechargerCV($id){
-$candidat = Candidat::where('id', $id)->first();
-$pathToFile =storage_path("app/public/{$candidat->cv}");
-return Response::download($pathToFile);
-}
+    {
+        $candidature = Candidature::with('candidat')->findOrFail($id);
+        
+        return view('candidatures/details', compact('candidature'));
+    }
+// public function telechargerCV($id){
+// $candidat = Candidat::where('id', $id)->first();
+// $pathToFile =storage_path("app/public/{$candidat->cv}");
+// return Response::download($pathToFile);
+// }
 }

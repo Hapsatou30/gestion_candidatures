@@ -1,47 +1,32 @@
-<style>
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
+<style>.candidature-detail {
     padding: 20px;
 }
 
-.candidature-details .header {
+.header {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
 }
 
-.candidature-details .header .photo {
+.photo img {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    object-fit: cover;
     margin-right: 20px;
 }
 
-.candidature-details .header .info h1 {
+.info h1 {
     margin: 0;
     font-size: 24px;
 }
 
-.candidature-details .content h2 {
-    margin-top: 20px;
-    font-size: 20px;
+.biographie, .motivation, .cv {
+    margin-bottom: 20px;
 }
 
-.candidature-details .content p {
-    margin-bottom: 10px;
-}
-
-.candidature-details .content a {
+.cv a {
     display: inline-block;
     margin-top: 10px;
-    color: #007bff;
-    text-decoration: none;
-}
-
-.candidature-details .content a:hover {
-    text-decoration: underline;
 }
 
 
@@ -49,30 +34,32 @@
 @extends('layouts.app')
 
 @section('content')
-<link href="{{ asset('css/candidature-details.css') }}" rel="stylesheet">
+<link href="{{ asset('css/candidature.css') }}" rel="stylesheet">
 
-<div class="container">
-    <div class="candidature-details">
+<div class="container-fluid">
+    <div class="candidature-detail">
         <div class="header">
-            <img src="{{ asset( $candidat->photo) }}" alt="Photo de {{ $candidat->prenom }} {{ $candidat->nom }}" class="photo">
+            <div class="photo">
+                <img src="{{ asset('storage/' . $candidature->candidat->photo) }}" alt="Photo de {{ $candidature->candidat->prenom }} {{ $candidature->candidat->nom }}">
+            </div>
             <div class="info">
-                <h1>{{ $candidat->prenom }} {{ $candidat->nom }}</h1>
-                <p>Âge: {{ $age }} ans</p>
+                <h1>{{ $candidature->candidat->prenom }} {{ $candidature->candidat->nom }}</h1>
+                <p>Age: {{ \Carbon\Carbon::parse($candidature->candidat->date_naissance)->age }} ans</p>
             </div>
         </div>
-
-        <div class="content">
+        <div class="biographie">
             <h2>Biographie</h2>
             <p>{{ $candidature->biographie }}</p>
-
+        </div>
+        <div class="motivation">
             <h2>Motivation</h2>
             <p>{{ $candidature->motivation }}</p>
-
-            <h2>CV</h2>
-            <a href="/candidature/cv/ {{ $candidat->id }}">Télécharger le CV</a>
         </div>
-
-        <a href="{{ url()->previous() }}" class="btn btn-primary btn-sm">Retour</a>
+        <div class="cv">
+            <h2>CV</h2>
+            <a href="{{ asset('storage/' . $candidature->candidat->cv) }}" class="btn btn-primary" target="_blank">Voir le CV</a>
+        </div>
+        <a href="{{ url()->previous() }}" class="btn btn-primary">Retour</a>
     </div>
 </div>
 @endsection
