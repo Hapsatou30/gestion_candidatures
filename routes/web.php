@@ -17,6 +17,10 @@ Route::post('/sauvegardeCandidature', [CandidatureController::class, 'sauvegarde
 Route::get('/mescandidatures',[CandidatureController::class, 'affichageListe'] );
 Route::get('/profil/{id}', [CandidatController::class, 'show'])->name('profil.show');
 
+// Route modification de profil
+Route::post('/modifier/profil-traitement/', [CandidatController::class, 'ModifierProfilTraitement'])->name('ModifierProfilTraitement');
+Route::get('/modifier-profil/{id}', [CandidatController::class, 'ModifierProfil']);
+
 //routes formations
 Route::get('/formation', [FormationController::class, 'index']);
 Route::get('formation/detail', [FormationController::class, 'detail']);
