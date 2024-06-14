@@ -57,7 +57,6 @@ Route::get('/profil', [CandidatController::class, 'show'])->name('profil.show');
 });
 
 Route::middleware(['personnel'])->group(function () {
-    //routes personnels
 Route::get('/espacePersonnel',[PersonnelController::class,'voirEspace'])->name('espacePersonnel');
 Route::post('/modifier/formation-traitement/', [FormationController::class, 'ModifierFormationTraitement']);
 Route::get('/modifier-formation/{id}', [FormationController::class, 'ModifierFormation'])->name(('modifierFormation'));
