@@ -26,6 +26,10 @@ Route::post('/modifier/formation-traitement/', [FormationController::class, 'Mod
 Route::get('/modifier-formation/{id}', [FormationController::class, 'ModifierFormation']);
 Route::delete('/formations/{id}', [FormationController::class, 'destroy'])->name('formations.destroy');  
 
+// de form
+Route::get('/formdetails', [FormationController::class, 'formationshow']);
+
+
 
 //routes authentification pour le candidat
 Route::get('/connexion',[CandidatController::class,  'connexion'])->name(('login'));
@@ -41,8 +45,16 @@ Route::get('/', [CandidatController::class, 'index'])->name('accueil');
 //routes personnels
 Route::get('/espacePersonnel',[PersonnelController::class,'voirEspace']);
 
+//persoooo
+Route::get('/personnels', [PersonnelController::class, 'index'])->name('personnels.index');
+Route::get('/personnels/{id}', [PersonnelController::class, 'show'])->name('personnels.espacePerso');
+
+
+
+
 
 //routes authentifcation personnels
 Route::get('/connexionPersonnel', [PersonnelController::class, 'connexion']);
 Route::post('/verification', [PersonnelController::class, 'verification']);
+
 

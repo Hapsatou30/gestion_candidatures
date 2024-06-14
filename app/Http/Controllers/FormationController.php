@@ -121,4 +121,9 @@ public function ModifierFormationTraitement(Request $request)
 
 }
 
+public function formationshow()
+{
+    return view('formations.detailFormationb');
+}
+
 }
