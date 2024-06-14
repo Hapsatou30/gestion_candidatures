@@ -33,7 +33,7 @@ Route::post('/connecter',[CandidatController::class,  'connecter'])->name('conne
 
 Route::get('/inscription', [CandidatController::class, 'inscription'])->name('inscription');
 Route::post('/inscription', [CandidatController::class, 'inscrire'])->name('inscrire');
-Route::delete('deconnexion', [CandidatController::class, 'deconnexion'])->name('deconnexion');
+Route::delete('/deconnexion', [CandidatController::class, 'deconnexion'])->name('deconnexion');
 
 //Accueil
 Route::get('/', [CandidatController::class, 'index'])->name('accueil');
