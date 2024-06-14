@@ -16,8 +16,8 @@ class FormationController extends Controller
     }
 
     public function detail($id){
-        $formations = Formation::all();
         $formation = Formation::find($id);
+        $formations = Formation::all();
         return view ('formations.detail-formation',compact('formation', 'formations'));
     }
 
@@ -82,7 +82,7 @@ public function listeDformation()
     public function ModifierFormation($id)
 {
     $formations = Formation::findOrFail($id);
-    $personnels = Personnel::all();
+    $personnels = session('personnel');
     return view('formations/modifier', compact('formations', 'personnels'));
 
 }

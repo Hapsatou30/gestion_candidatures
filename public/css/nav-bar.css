@@ -12,6 +12,7 @@
 }
 body{
     font-family: var(--police);
+    overflow-x: hidden;
 }
 header{
     background-color: #CE0033;

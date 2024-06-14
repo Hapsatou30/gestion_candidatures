@@ -94,7 +94,7 @@
     font-size: var(--taille-titre);
     margin-left: 20px;
 }
-#formation p{
+.paragraphe{
     width: 800px;
     margin-left: 20px;
     text-align: center;

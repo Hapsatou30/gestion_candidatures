@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Candidat;
+use App\Models\Formation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -102,7 +103,7 @@ class CandidatController extends Controller
             // Vous pouvez maintenant gérer la connexion de l'utilisateur manuellement si nécessaire
             Auth::login($candidat);
         
-            return redirect()->intended('accueil'); // Rediriger vers la page d'accueil après connexion réussie
+            return redirect()->intended('/'); // Rediriger vers la page d'accueil après connexion réussie
         } else {
             // Le mot de passe ne correspond pas ou l'utilisateur n'existe pas
             return back()->withErrors([
@@ -120,17 +121,59 @@ class CandidatController extends Controller
 
     public function index()
     {
-        return view('accueil');
+        $formations = Formation::all();
+        return view('accueil' , compact('formations'));
     }
 
     public function deconnexion()
     {
         Auth::logout();
-        return redirect('connexion');
+        return redirect('/');
     }
-    public function show($id)
+    public function show()
     {
-        $candidat = Candidat::findOrFail($id);
+        $candidat = Auth::user();
         return view('candidats/profil1', compact('candidat'));
     }
+
+
+    // Modifier son profil
+    public function ModifierProfil($id)
+    {
+        $candidats = Candidat::findOrFail($id);
+        return view('candidats/modifier_profil', compact('candidats'));
+    }
+
+    public function ModifierProfilTraitement(Request $request)
+    {
+        /*dd($request->all());*/
+        $request->validate([
+            'nom' => 'required|string|max:255',
+            'prenom' => 'required|string|max:255',
+            'date_naissance' => 'required|date',
+            'telephone' => 'required|string|max:15',
+            'adresse' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:candidats',
+            'sexe' => 'required|in:M,F',
+            'mot_passe' => 'required|string|min:8',
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'cv' => 'nullable|mimes:pdf|max:10000',
+        ]);
+
+        // $candidat = Candidat::findOrFail($request->id);
+        $candidat = new Candidat();
+        $candidat->nom = $request->nom;
+        $candidat->prenom = $request->prenom;
+        $candidat->date_naissance = $request->date_naissance;
+        $candidat->telephone = $request->telephone;
+        $candidat->adresse = $request->adresse;
+        $candidat->email = $request->email;
+        $candidat->sexe = $request->sexe;
+        $candidat->mot_passe = $request->mot_passe;
+        $candidat->photo = $request->photoPath;
+        $candidat->cv = $request->cvPath;
+        $candidat->update();
+        return redirect('profil.show');
+    }
+
 }

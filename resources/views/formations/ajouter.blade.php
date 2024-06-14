@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.sidebar')
 @section('content')
     <div class="container" style="margin-top:50px;">
       <a href="{{ url()->previous() }}" class="btn btn-primary btn-sm">Retour</a>

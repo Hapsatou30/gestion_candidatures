@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <div class="banniere">
+    <div class="banniere mt-5">
         <div class="row">
             {{-- <div class="col text-center p-5" >
                 <div class="card p-3" style="width: 30rem;" id="card">
@@ -22,7 +22,7 @@
                     <div class="card-body">
                         <p class="card-text">{{ $formation->description }}</</p>
                     </div>
-                    <a class="btn btn-danger m-5" style="width: 10rem;" id="bouton" href="">POSTULER</a>
+                    <a class="btn btn-danger m-5" style="width: 10rem;" id="bouton" href="{{ route('postuler', $formation->id) }}">POSTULER</a>
                 </div>
                 <img class="image" src="{{ asset('images/banner3.webp') }}" alt="">
             </div>
@@ -80,7 +80,7 @@
                   </div>
             </div>
         </div>
-        <a class="btn btn-danger m-5" style="width: 10rem;" id="bouton" href="">POSTULER</a>
+        <a class="btn btn-danger m-5" style="width: 10rem;" id="bouton" href="{{ route('postuler', $formation->id) }}">POSTULER</a>
     </div>
     <div class="autre-ref">
         <div class="container mt-5  text-center">
@@ -90,7 +90,7 @@
                 <div class="col">
                                   
                  <a href="{{ route('detailFormation', $formation->id) }}">
-                    <div class="card mb-5" style="width: 18rem;">
+                    <div class="card mb-5" style="width: 15rem;">
                         <img src="{{ $formation->image }}" class="card-img-top"
                             alt="formation">
                         <div class="card-body">
