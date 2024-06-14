@@ -1,3 +1,4 @@
+
 <style>.candidature-detail {
     padding: 20px;
 }
@@ -31,8 +32,8 @@
 
 
 </style>
-@extends('layouts.app')
 
+@extends('layouts.sidebar')
 @section('content')
 <link href="{{ asset('css/candidature.css') }}" rel="stylesheet">
 

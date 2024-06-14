@@ -22,7 +22,7 @@
                     <div class="card-body">
                         <p class="card-text">{{ $formation->description }}</</p>
                     </div>
-                    <a class="btn btn-danger m-5" style="width: 10rem;" id="bouton" href="">POSTULER</a>
+                    <a class="btn btn-danger m-5" style="width: 10rem;" id="bouton" href="{{ route('postuler', $formation->id) }}">POSTULER</a>
                 </div>
                 <img class="image" src="{{ asset('images/banner3.webp') }}" alt="">
             </div>
@@ -80,7 +80,7 @@
                   </div>
             </div>
         </div>
-        <a class="btn btn-danger m-5" style="width: 10rem;" id="bouton" href="">POSTULER</a>
+        <a class="btn btn-danger m-5" style="width: 10rem;" id="bouton" href="{{ route('postuler', $formation->id) }}">POSTULER</a>
     </div>
     <div class="autre-ref">
         <div class="container mt-5  text-center">

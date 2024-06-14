@@ -1,25 +1,19 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tableau de Bord</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
+@extends('layouts.sidebar')
+@section('content')
+<style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
-            padding: 20px;
+            padding: 0;
         }
         .dashboard-container {
-            max-width: 1200px;
+            max-width: 900px;
             margin: auto;
             border-radius: 1px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             background-color: #ffffff;
-            padding: 20px;
+            padding: auto;
         }
         h1 {
             text-align: left;
@@ -76,19 +70,18 @@
         }
         
     </style>
-</head>
-<body>
+
     <section style="margin-top:60px">
-        <div style="background-color:#CE0033; width:70%; margin-left:14%">
-            <div style="background-color:#ffffff; width:100%; border-radius:60px;">
-                <div class="container mt-5" style="padding:50px;">
-                    <div class="dashboard-container">
+        <div style="background-color:#CE0033; ">
+            <div style="background-color:#ffffff; border-radius:60px;">
+                <div class="container mt-5" style="padding:10px;">
+                    <div class="dashboard-container" style="padding-left: 150px; ">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <h1>La liste de nos différentes formations</h1>
+                            <h1 class="text-end">La liste des formations</h1>
                             <a href="/formations/ajouter" class="add-button">Ajouter une formation</a>
                             
                         </div>
-                        <table>
+                        <table style="">
                             <thead>
                                 <tr>
                                     <th>Image</th>
@@ -105,7 +98,7 @@
                                     <td>{{ $formation->duree }}</td>
                                     <td class="actions">
                                         <a href="#" class="view-button" title="Voir détails"><i class="fas fa-eye"></i></a>
-                                        <a href="#" class="edit-button" title="Modifier"><i class="fas fa-edit"></i></a>
+                                        <a href="{{ route('modifierFormation', $formation->id) }}" class="edit-button" title="Modifier"><i class="fas fa-edit"></i></a>
                                         
                                         <form action="{{ route('formations.destroy', $formation->id) }}" method="POST">
                                             @csrf
@@ -126,5 +119,5 @@
         </div>
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
-</body>
-</html>
+
+@endsection

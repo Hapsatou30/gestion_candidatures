@@ -19,7 +19,7 @@
                                 It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
                                 passages, and more recently with desktop publishing software like Aldus PageMaker including
                                 versions of Lorem Ipsum.</p>
-                            <button class="btn btn-custom">NOS FORMATIONS</button>
+                            <button class="btn btn-custom"><a href="{{route('formation')}}" class="btn-custom">NOS FORMATIONS</a></button>
                         </div>
                     </div>
                 </div>
@@ -38,8 +38,8 @@
                                 It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
                                 passages, and more recently with desktop publishing software like Aldus PageMaker including
                                 versions of Lorem Ipsum.</p>
-                            <button class="btn btn-custom">NOS FORMATIONS</button>
-                        </div>
+                                <button class="btn btn-custom"><a href="{{route('formation')}}" class="btn-custom">NOS FORMATIONS</a></button>
+                            </div>
                     </div>
                 </div>
                 <div class="carousel-item">
@@ -57,8 +57,8 @@
                                 It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
                                 passages, and more recently with desktop publishing software like Aldus PageMaker including
                                 versions of Lorem Ipsum.</p>
-                            <button class="btn btn-custom">NOS FORMATIONS</button>
-                        </div>
+                                <button class="btn btn-custom"><a href="{{route('formation')}}" class="btn-custom">NOS FORMATIONS</a></button>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -94,35 +94,39 @@
         <div class="container">
             <div class="row">
                 <h2>Découvrez nos formations</h2>
-                <p>La qualité est au coeur de notre démarche, la satisfaction de nos clients étant la seule voie par
+                <p class="paragraphe">La qualité est au coeur de notre démarche, la satisfaction de nos clients étant la seule voie par
                     laquelle nous
                     pouvons assurer notre développement. Le souci permanent de la QUALITE est donc omniprésent dans le
                     cadre des services offerts aux clients.</p>
             </div>
-            <div class="formations row">
-                <div class="col-md-4">
-                    <div class="image-container">
-                        <div class="image-item">
-                            <img src="{{ asset('images/image 1.jpg') }}" alt="Image 1">
-                            <p>ADEFNIPA</p>
-                        </div>
-                        <div class="image-item">
-                            <img src="{{ asset('images/image 7.png') }}" alt="Image 2">
-                            <p>SAS Hackeuses</p>
-                        </div>
-                        <div class="image-item">
-                            <img src="{{ asset('images/image 5.jpg') }}" alt="Image 3">
-                            <p>Développeur Web + IOT</p>
-                        </div>
-                        <div class="image-item">
-                            <img src="{{ asset('images/image 6.jpg') }}" alt="Image 4">
-                            <p>Référent Digital</p>
+            <div class="container text-center">
+                <div class="row row-cols-2 mt-5">
+
+                    <div class="col">
+                        <div class="container text-center">
+                            
+                            <div class="row row-cols-2">
+                                @foreach ($formations as $formation) 
+                                <div class="col">
+                                                  
+                                 <a href="{{ route('detailFormation', $formation->id) }}">
+                                    <div class="card mb-5" style="width: 18rem;">
+                                        <img src="{{ $formation->image }}" class="card-img-top"
+                                            alt="formation">
+                                        <div class="card-body">
+                                            <p class="card-text">
+                                                {{ $formation->nom}}</p>
+                                        </div>
+                                    </div>
+                                 </a>
+                                
+                                </div>
+                                @endforeach
+
+                            </div>
                         </div>
                     </div>
-                    <button class="btn btn-custom">Découvrir nos formations</button>
-                </div>
-                <div class="col-md-7">
-                    <img src="{{ asset('images/formation.jpg') }}" alt="">
+                    <div class="col"><img src="{{ asset('images/formation1.png') }}"></div>
                 </div>
             </div>
         </div>

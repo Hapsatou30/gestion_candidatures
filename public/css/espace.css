@@ -30,7 +30,7 @@ hr{
 }
 .sidebar{
 	position: fixed;
-	width: 300px;
+	width: 250px;
 	height: 100%;
 	background: #CE0033;
 	padding: 20px 0;
@@ -139,7 +139,4 @@ i.far.fa-credit-card:hover{
     
 a:link{
     text-decoration:none;
-}
-.main-content{
-
 }

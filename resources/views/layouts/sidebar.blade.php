@@ -23,9 +23,9 @@
                 <hr class="text-ligt" style="color:white;">
             </small>
             <ul>
-                <li><a href="#"><img src="images/deconnexion.svg" alt="">   Tableau de bord</a></li>
-                <li><a href="#"><img src="images/formation.svg" alt="">   Formations </a></li>
-                <li><a href="#"><img src="images/candidat.svg" alt="">   Candidats </a></li>
+                <li><a href="{{route('espacePersonnel')}}"><img src="images/deconnexion.svg" alt="">   Tableau de bord</a></li>
+                <li><a href="{{route('listeFormation')}}"><img src="images/formation.svg" alt="">   Formations </a></li>
+                <li><a href=""><img src="images/candidat.svg" alt="">   Candidats </a></li>
             </ul>
             <small class="text-muted px-3"></small>
             <ul>
@@ -41,20 +41,8 @@
     <div class="main-content">
         <header class="header text-start" id="header">
            
-            <div class="container h-100">
-                
-                <div class="d-flex justify-content-center h-100">
-                    <h1 class="m-5 text-danger">Dashboard</h1>
-                  <div class="search">
-                    <input class="search_input" type="text" name="" placeholder="Rechercer">
-                    <a href="#" class="search_icon"><i class="fa fa-search"></i></a>
-                  </div>
-                  <div class="header_img"> 
-                    <img class="rounded-circle" style="width: 50px; margin-top:50px; margin-left:50px;" src="{{ asset('images/banniere.png') }}" alt="">
-                    <i class="fa-solid fa-bell" style="color: #950909;"></i>
-                 </div>
-                </div>
-                
+            <div class="container h-50">
+                <h5 class=" text-danger" style="text-align: center">Dashboard</h5>
               </div>
                
         </header>

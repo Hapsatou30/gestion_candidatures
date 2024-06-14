@@ -28,11 +28,15 @@
                 aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            
             <div class="container justify-content-center">
                 <ul class="navbar fs-3 navbar-nav justify-content-center">
                     <li class="nav-item active"> <a class="nav-link" href="/" data-abc="true" style="color: white;">Accueil</a> </li>
                     <li class="nav-item"> <a class="nav-link" href="/formation" data-abc="true" style="color: white;">Formations</a> </li>
+                    @auth
                     <li class="nav-item"> <a class="nav-link" href="/mescandidatures" data-abc="true" style="color: white;">Mes candidatures</a> </li>
+ 
+                    @endauth
 
                 </ul>
             </div>
@@ -47,7 +51,7 @@
                     </a>
                   
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Profil</a></li>
+                        <li><a class="dropdown-item" href="{{ route('profil.show') }}">Profil</a></li>
                       <li>
                         <form action="{{ route('deconnexion') }}" method="POST">
                             @csrf
