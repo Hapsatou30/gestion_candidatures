@@ -1,18 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modifier Formation</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-    <div class="container mt-5">
+@extends('layouts.sidebar')
+@section('content')
+    
+
+    <div class="container mt-5" style="margin-left: 300px;">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <h3>Modifier un livre</h3>
+                        <h3>Modifier une formation</h3>
                     </div>
                     <div class="card-body">
                         @if (session('status'))
@@ -78,12 +73,8 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="personnel_id">Personnel:</label>
-                                <select id="personnel_id" name="personnel_id" class="form-control" >
-                                    @foreach ($personnels as $personnel)
-                                        <option value="{{ $personnel->id }}" {{ old('personnel_id', $formations->personnel_id) == $personnel->id ? 'selected' : '' }}>{{ $personnel->nom }}</option>
-                                    @endforeach
-                                </select>
+                                <input name="personnel_id" type="hidden" value="{{ $personnels->id }}">
+                
                             </div>
                             
                             
@@ -99,5 +90,4 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+    @endsection

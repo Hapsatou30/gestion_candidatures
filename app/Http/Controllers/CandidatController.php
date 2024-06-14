@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Candidat;
+use App\Models\Formation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -120,7 +121,8 @@ class CandidatController extends Controller
 
     public function index()
     {
-        return view('accueil');
+        $formations = Formation::all();
+        return view('accueil' , compact('formations'));
     }
 
     public function deconnexion()
@@ -128,9 +130,9 @@ class CandidatController extends Controller
         Auth::logout();
         return redirect('/');
     }
-    public function show($id)
+    public function show()
     {
-        $candidat = Candidat::findOrFail($id);
+        $candidat = Auth::user();
         return view('candidats/profil1', compact('candidat'));
     }
 }

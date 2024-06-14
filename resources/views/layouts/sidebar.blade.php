@@ -23,9 +23,9 @@
                 <hr class="text-ligt" style="color:white;">
             </small>
             <ul>
-                <li><a href="#"><img src="images/deconnexion.svg" alt="">   Tableau de bord</a></li>
-                <li><a href="#"><img src="images/formation.svg" alt="">   Formations </a></li>
-                <li><a href="#"><img src="images/candidat.svg" alt="">   Candidats </a></li>
+                <li><a href="{{route('espacePersonnel')}}"><img src="images/deconnexion.svg" alt="">   Tableau de bord</a></li>
+                <li><a href="{{route('listeFormation')}}"><img src="images/formation.svg" alt="">   Formations </a></li>
+                <li><a href=""><img src="images/candidat.svg" alt="">   Candidats </a></li>
             </ul>
             <small class="text-muted px-3"></small>
             <ul>

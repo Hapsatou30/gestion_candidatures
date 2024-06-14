@@ -11,19 +11,19 @@ use App\Http\Controllers\CandidatureController;
 
 
 //routes candidat et candidature
-Route::get('/postuler',[CandidatureController::class,'postuler']);
+Route::get('/postuler/{id}',[CandidatureController::class,'postuler'])->name('postuler');
 Route::post('/sauvegardeCandidature', [CandidatureController::class, 'sauvegardeCandidature']);
 // Route::get('/profil',  [CandidatController::class,'profil']);
 Route::get('/mescandidatures',[CandidatureController::class, 'affichageListe'] );
-Route::get('/profil/{id}', [CandidatController::class, 'show'])->name('profil.show');
+Route::get('/profil', [CandidatController::class, 'show'])->name('profil.show');
 
 //routes formations
-Route::get('/formation', [FormationController::class, 'index']);
-Route::get('formation/detail', [FormationController::class, 'detail']);
+Route::get('/formation', [FormationController::class, 'index'])->name('formation');
+Route::get('formation/detail/{id}', [FormationController::class, 'detail'])->name('detailFormation');
 Route::get('/formations/ajouter', [FormationController::class, 'AjouterFormation']);
-Route::get('/formations', [FormationController::class, 'listeDformation']);
+Route::get('/formations', [FormationController::class, 'listeDformation'])->name('listeFormation');
 Route::post('/modifier/formation-traitement/', [FormationController::class, 'ModifierFormationTraitement']);
-Route::get('/modifier-formation/{id}', [FormationController::class, 'ModifierFormation']);
+Route::get('/modifier-formation/{id}', [FormationController::class, 'ModifierFormation'])->name(('modifierFormation'));
 Route::delete('/formations/{id}', [FormationController::class, 'destroy'])->name('formations.destroy');  
 
 
@@ -39,7 +39,7 @@ Route::delete('deconnexion', [CandidatController::class, 'deconnexion'])->name('
 Route::get('/', [CandidatController::class, 'index'])->name('accueil');
 
 //routes personnels
-Route::get('/espacePersonnel',[PersonnelController::class,'voirEspace']);
+Route::get('/espacePersonnel',[PersonnelController::class,'voirEspace'])->name('espacePersonnel');
 
 
 //routes authentifcation personnels
