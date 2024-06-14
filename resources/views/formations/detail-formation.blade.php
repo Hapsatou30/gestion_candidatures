@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <div class="banniere">
+    <div class="banniere mt-5">
         <div class="row">
             {{-- <div class="col text-center p-5" >
                 <div class="card p-3" style="width: 30rem;" id="card">
@@ -90,7 +90,7 @@
                 <div class="col">
                                   
                  <a href="{{ route('detailFormation', $formation->id) }}">
-                    <div class="card mb-5" style="width: 18rem;">
+                    <div class="card mb-5" style="width: 15rem;">
                         <img src="{{ $formation->image }}" class="card-img-top"
                             alt="formation">
                         <div class="card-body">

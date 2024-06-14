@@ -42,7 +42,7 @@
             </div>
             <div class="container text-center">
                 <div class="row row-cols-2 mt-5">
-                    <div class="col"><img src="{{ asset('images/formation.png') }}"></div>
+                    <div class="col"><img src="{{ asset('images/formation.png') }}" style="width:100%;"></div>
                     <div class="col">
                         <h4 class="text-danger text-start"><img src="{{ asset('images/Vector.svg') }}"> Appel à candidature
                         </h4>
@@ -94,7 +94,7 @@
                                 <div class="col">
                                                   
                                  <a href="{{ route('detailFormation', $formation->id) }}">
-                                    <div class="card mb-5" style="width: 18rem;">
+                                    <div class="card mb-5" style="width: 15rem;">
                                         <img src="{{ $formation->image }}" class="card-img-top"
                                             alt="formation">
                                         <div class="card-body">
@@ -110,7 +110,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col"><img src="{{ asset('images/formation1.png') }}"></div>
+                    <div class="col"><img src="{{ asset('images/formation1.png') }}" style="width: 100%;"></div>
                 </div>
             </div>
         </div>

@@ -110,7 +110,7 @@
                                 <div class="col">
                                                   
                                  <a href="{{ route('detailFormation', $formation->id) }}">
-                                    <div class="card mb-5" style="width: 18rem;">
+                                    <div class="card mb-5" style="width: 15rem;">
                                         <img src="{{ $formation->image }}" class="card-img-top"
                                             alt="formation">
                                         <div class="card-body">
@@ -126,7 +126,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col"><img src="{{ asset('images/formation1.png') }}"></div>
+                    <div class="col"><img src="{{ asset('images/formation1.png') }}" style="width: 100%;"></div>
                 </div>
             </div>
         </div>
