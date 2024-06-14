@@ -40,11 +40,25 @@
                 @guest <!-- Vérifie si l'utilisateur n'est pas connecté -->
                     <a href="{{ route('login') }}" class="btn me-5" style="background-color: #ffffff; color:#CE0033">Connexion</a>
                 @else <!-- Si l'utilisateur est connecté, affiche le bouton de déconnexion -->
-                    <form action="{{ route('deconnexion') }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn me-5" style="background-color: #ffffff; color:#CE0033">Déconnexion</button>
-                    </form>
+                <div class="dropdown">
+                    
+                    <a class="dropdown-toggle px-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img class="rounded-circle" src="{{asset('images/logo.png')}}" style="width:50px;">
+                    </a>
+                  
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Profil</a></li>
+                      <li>
+                        <form action="{{ route('deconnexion') }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn me-5" style="background-color: #ffffff; color:#CE0033">Déconnexion</button>
+                        </form>
+                      </li>
+                     
+                    
+                    </ul>
+                  </div>
                 @endguest
             </div>
         </nav>

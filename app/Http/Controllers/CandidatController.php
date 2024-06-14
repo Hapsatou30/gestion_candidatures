@@ -102,7 +102,7 @@ class CandidatController extends Controller
             // Vous pouvez maintenant gérer la connexion de l'utilisateur manuellement si nécessaire
             Auth::login($candidat);
         
-            return redirect()->intended('accueil'); // Rediriger vers la page d'accueil après connexion réussie
+            return redirect()->intended('/'); // Rediriger vers la page d'accueil après connexion réussie
         } else {
             // Le mot de passe ne correspond pas ou l'utilisateur n'existe pas
             return back()->withErrors([
@@ -126,7 +126,7 @@ class CandidatController extends Controller
     public function deconnexion()
     {
         Auth::logout();
-        return redirect('connexion');
+        return redirect('/');
     }
     public function show($id)
     {
