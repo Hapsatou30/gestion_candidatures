@@ -58,12 +58,12 @@ Route::get('/send-my-email', function () {
     return 'Email has been sent!';
 });
 
+Route::get('/candidature/{id}', [CandidatureController::class, 'show'])->name('candidature.show');
 //candidat et candidature
 Route::middleware(['auth', 'candidat'])->group(function (){
 Route::get('/postuler/{id}',[CandidatureController::class,'postuler'])->name('postuler');
 Route::post('/sauvegardeCandidature', [CandidatureController::class, 'sauvegardeCandidature']);
 Route::get('/mescandidatures',[CandidatureController::class, 'affichageListe'] );
-Route::get('/candidature/{id}', [CandidatureController::class, 'show'])->name('candidature.show');
 Route::post('/modifier/profil-traitement/', [CandidatController::class, 'ModifierProfilTraitement'])->name('ModifierProfilTraitement');
 Route::get('/modifier-profil/{id}', [CandidatController::class, 'ModifierProfil']);
 Route::get('/profil', [CandidatController::class, 'show'])->name('profil.show');
@@ -71,9 +71,10 @@ Route::get('/profil', [CandidatController::class, 'show'])->name('profil.show');
 
 });
 
-Route::get('/espacePersonnel',[PersonnelController::class,'voirEspace'])->name('espacePersonnel');
+
 
 Route::middleware(['personnel'])->group(function () {
+Route::get('/espacePersonnel',[PersonnelController::class,'voirEspace'])->name('espacePersonnel');
 Route::post('/modifier/formation-traitement/', [FormationController::class, 'ModifierFormationTraitement']);
 Route::get('/modifier-formation/{id}', [FormationController::class, 'ModifierFormation'])->name(('modifierFormation'));
 Route::delete('/formations/{id}', [FormationController::class, 'destroy'])->name('formations.destroy');  

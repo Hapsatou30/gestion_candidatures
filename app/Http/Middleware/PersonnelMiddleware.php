@@ -13,14 +13,11 @@ class PersonnelMiddleware
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next): Response
     {
-        // Vérifiez si l'utilisateur est authentifié en tant que personnel via les sessions
-        if ($request->session()->has('personnel') && $request->session()->get('personnel') === true) {
-            return $next($request);
+        if (!$request->session()->has('personnel')) {
+            return redirect('/connexionPersonnel')->with('message', 'Vous devez d\'abord vous connecter.'); 
         }
-
-        // Si l'utilisateur n'est pas authentifié en tant que personnel, redirigez-le vers la page de connexion
-        return redirect('/connexionPersonnel');
+        return $next($request);
     }
 }

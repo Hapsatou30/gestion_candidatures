@@ -46,7 +46,9 @@
               </div>
                
         </header>
-        @yield('content')
+        <div class="main-content">
+            @yield('content')
+        </div>
         <!-- Contenu principal de la page -->
     </div>
 

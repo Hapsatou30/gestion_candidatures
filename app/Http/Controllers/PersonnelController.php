@@ -10,11 +10,11 @@ class PersonnelController extends Controller
 {
     public function connexion(Request $request)
     {
-        // Vérifie si un personnel est déjà connecté
-        if ($request->session()->get('personnel')) {
-            // Redirige vers l'espace personnel avec un message
-            return redirect('/espacePersonnel')->with('status', 'Vous devez vous déconnecter avant de vous reconnecter.');
-        }
+        // // Vérifie si un personnel est déjà connecté
+        // if ($request->session()->get('personnel')) {
+        //     // Redirige vers l'espace personnel avec un message
+        //     return redirect('/espacePersonnel')->with('status', 'Vous devez vous déconnecter avant de vous reconnecter.');
+        // }
         return view('personnels/connexion');
     }
     public function verification(Request $request)

@@ -33,8 +33,6 @@
 
 </style>
 
-@extends('layouts.sidebar')
-@section('content')
 <link href="{{ asset('css/candidature.css') }}" rel="stylesheet">
 
 <div class="container-fluid">
@@ -63,4 +61,4 @@
         <a href="{{ url()->previous() }}" class="btn btn-primary">Retour</a>
     </div>
 </div>
-@endsection
+
