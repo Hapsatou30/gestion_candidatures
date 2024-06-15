@@ -61,10 +61,11 @@
     </div>
     
 
-<div class="container top-bar">
-    <h4>Bonjour {{ session('personnel')->prenom }}</h4>
-    <hr>
-</div>
+    <div class="container top-bar d-flex align-items-center justify-content-end">
+        <h4>Bonjour {{ session('personnel')->prenom }}</h4> <hr>
+    </div>
+   
+    
 
     <div class="main-content">
         @yield('content')
