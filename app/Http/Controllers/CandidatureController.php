@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\Candidature;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Monolog\Formatter\FormatterInterface;
 
 class CandidatureController extends Controller
 {
@@ -44,4 +45,6 @@ class CandidatureController extends Controller
         
         return view('candidatures/details', compact('candidature'));
     }
+
+   
 }

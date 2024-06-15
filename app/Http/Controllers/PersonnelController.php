@@ -43,4 +43,6 @@ class PersonnelController extends Controller
     {
         return view('personnels/espacePerso');
     }
+
+    
 }

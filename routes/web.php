@@ -34,7 +34,9 @@ Route::get('/formations/ajouter', [FormationController::class, 'AjouterFormation
 Route::get('/formations', [FormationController::class, 'listeDformation'])->name('listeFormation');
 Route::post('/modifier/formation-traitement/', [FormationController::class, 'ModifierFormationTraitement']);
 Route::get('/modifier-formation/{id}', [FormationController::class, 'ModifierFormation'])->name(('modifierFormation'));
-Route::delete('/formations/{id}', [FormationController::class, 'destroy'])->name('formations.destroy');  
+Route::delete('/formations/{id}', [FormationController::class, 'destroy'])->name('formations.destroy'); 
+//Affichage liste des candidat pour une formation
+Route::get('/listeCandidatPostulez/{id}',[FormationController::class,'CandidatPostulez']); 
 
 
 //routes authentification pour le candidat

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Formation;
 use App\Models\Personnel;
+use App\Models\Candidature;
 use Illuminate\Http\Request;
 
 class FormationController extends Controller
@@ -118,5 +119,14 @@ public function ModifierFormationTraitement(Request $request)
 
     return back()->with('status', "La formation été modifié avec succés.");
 
+}
+
+public function CandidatPostulez($id){
+
+    $formation = Formation::findOrFail($id);
+
+    $candidats = $formation->candidats;
+
+    return view('formations.liste_candidat', compact('formation','candidats'));
 }
 }
