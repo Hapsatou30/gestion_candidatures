@@ -85,7 +85,7 @@
                                         <td class="actions">
                                             <a href="#" class="view-button" title="Voir détails"><i class="fas fa-eye"></i></a>
                                             <a href="{{ route('modifierFormation', $formation->id) }}" class="edit-button" title="Modifier"><i class="fas fa-edit"></i></a>
-                                            <a href="{{ route('formations.destroy', $formation->id) }}" class="delete-button" title="Supprimer"><i class="fas fa-trash"></i></a>
+                                            <a href="/Suppformations/{{$formation->id}}" class="delete-button" title="Supprimer"><i class="fas fa-trash"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach

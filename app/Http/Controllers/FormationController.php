@@ -95,18 +95,16 @@ public function listeDformation()
     return view('formations.listeDformation', compact('formations'));
 }
 
-    public function destroy($id)
-   {
-       // Suppression de la formation
-       $formation = Formation::findOrFail($id);
-       $formation->delete();
-   
-       // Retourne en arriere
-       return back()->with('success', 'Formation supprimée avec succès');  
-   }
-   
-    
+public function destroy($id)
+{
+    // Suppression de la formation
+    $formation = Formation::findOrFail($id);
+    $formation->delete();
 
+    // Retourne en arrière
+    return back()->with('success', 'Formation supprimée avec succès');
+}
+    
     public function ModifierFormation($id)
 {
     $formations = Formation::findOrFail($id);
