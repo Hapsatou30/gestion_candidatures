@@ -77,18 +77,26 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($formations as $formation)
-                                    <tr style="text-align:" >
-                                        <td><img src="{{ asset($formation->image) }}" alt="Image de formation"></td>
-                                        <td>{{ $formation->nom }}</td>
-                                        <td>{{ $formation->dureeEnJours }}</td>
-                                        <td class="actions">
-                                            <a href="#" class="view-button" title="Voir détails"><i class="fas fa-eye"></i></a>
-                                            <a href="{{ route('modifierFormation', $formation->id) }}" class="edit-button" title="Modifier"><i class="fas fa-edit"></i></a>
-                                            <a href="/Suppformations/{{$formation->id}}" class="delete-button" title="Supprimer"><i class="fas fa-trash"></i></a>
-                                        </td>
-                                    </tr>
-                                @endforeach
+                                <tr>
+                                    @foreach($formations as $formation)
+                                    <td><img src="https://via.placeholder.com/100" alt="Image de formation"></td>
+                                    <td>{{ $formation->nom }}</td>
+                                    <td>{{ $formation->duree }}</td>
+                                    <td class="actions">
+                                        <a href="#" class="view-button" title="Voir détails"><i class="fas fa-eye"></i></a>
+                                        <a href="{{ route('modifierFormation', $formation->id) }}" class="edit-button" title="Modifier"><i class="fas fa-edit"></i></a>
+                                        
+                                        <form action="{{ route('formations.destroy', $formation->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="delete-button" title="Supprimer"><i class="fas fa-trash"></i></button>
+                                        </form>
+
+
+                                        
+                                    </td>
+                                   </tr>
+                                   @endforeach
                             </tbody>
                       
                     </div> 
