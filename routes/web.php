@@ -82,6 +82,10 @@ Route::get('/Suppformations/{id}', [FormationController::class, 'destroy'])->nam
 Route::get('/formations/ajouter', [FormationController::class, 'AjouterFormation']);
 Route::post('/ajouter/formation-traitement', [FormationController::class, 'AjouterFormationTraitement']);
 Route::get('/formations', [FormationController::class, 'listeDformation'])->name('listeFormation');
+//Affichage liste des candidat pour une formation
+Route::get('/listeCandidatPostulez/{id}',[FormationController::class,'CandidatPostulez']); 
+
+
 
 
 

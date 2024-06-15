@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Formation;
 use App\Models\Personnel;
+use App\Models\Candidature;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -147,9 +148,20 @@ public function ModifierFormationTraitement(Request $request)
 
 }
 
+
 public function formationshow()
 {
     return view('formations.detailFormationb');
+}
+
+
+public function CandidatPostulez($id){
+
+    $formation = Formation::findOrFail($id);
+
+    $candidats = $formation->candidats;
+
+    return view('formations.liste_candidat', compact('formation','candidats'));
 }
 
 }

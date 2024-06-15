@@ -58,6 +58,7 @@ class PersonnelController extends Controller
         return view('personnels.espacePerso', compact('personnels'));
     }
 
+
     public function show($id)
     {
         // Récupérer une seule entrée de la table personnels par ID
@@ -76,4 +77,5 @@ class PersonnelController extends Controller
     // }
 
    
+
 }
