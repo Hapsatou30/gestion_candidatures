@@ -1,16 +1,13 @@
 <style>
        
-        .dashboard-container {
-            max-width: 1200px;
-            margin: auto;
-            border-radius: 1px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            background-color: #ffffff;
-            padding: 20px;
-        }
+        
         h1 {
-            text-align: left;
-            margin-bottom: 20px;
+        color: var(--couleur-pricinpal);
+    font-size: var(--taille-titre);
+    margin-left: 20px;
+    
+    line-height: 42px;
+    margin-bottom: 30px;
         }
         .add-button {
             display: inline-block;
@@ -66,40 +63,51 @@
             justify-content: space-around;
             padding: 20px;
         }
-        .card {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            width: 20%;
-            margin: 10px;
-            padding: 16px;
+       
+        .card{
+            border-radius: 25px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .card img {
-            width: 100%;
-            height: auto;
-        }
-        .card h3 {
-            margin: 15px 0 10px 0;
-        }
-        .card p {
-            padding: 0 15px 15px 15px;
-        }
-        h2 {
-            text-align: center;
-            margin-top: 40px;
+        .tableau{
+            margin-top: 50px
         }
     </style>
 @extends('layouts.sidebar')
 @section('content')
     <div class="dashboard-container">
-        <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Widget 1</h5>
+                            <p class="card-text">Contenu du widget 1.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Widget 2</h5>
+                            <p class="card-text">Contenu du widget 2.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Widget 3</h5>
+                            <p class="card-text">Contenu du widget 3.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="dashboard">
-            <img src="{{ asset('images/formation_card.png') }}" class="card-img-top">
-            <h1>Formations</h1>
-            <p>Description des formations.</p>
-        </div>
+
+        {{-- {{ route('personnels.show', $personnel->id) }} --}}
+    </div> 
+    <div class="tableau">
+
         <h1>Formations</h1>
         <table>
             <thead>
@@ -125,6 +133,5 @@
                 @endforeach
             </tbody>
         </table>
-        {{-- {{ route('personnels.show', $personnel->id) }} --}}
-    </div> 
+    </div>
     @endsection
