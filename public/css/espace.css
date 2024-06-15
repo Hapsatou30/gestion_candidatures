@@ -58,7 +58,7 @@ hr {
 
 .menu-list li,
 .logout-list li {
-    padding: 15px;
+    padding: 10px;
     transition: background-color 0.3s ease, color 0.3s ease;
     
 }
@@ -67,11 +67,13 @@ hr {
 .logout-list li a {
     font-weight: bold;
     color: #fff;
-    gap: 20px;
+    gap: 10px;
+    text-decoration: none;
     display: flex;
     align-items: center; 
     width: 100%;
     transition: color 0.3s ease;
+    font-size: var(--taille-texte);
 }
 
 .sidebar ul li:hover {

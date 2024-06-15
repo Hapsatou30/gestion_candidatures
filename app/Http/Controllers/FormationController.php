@@ -23,8 +23,8 @@ class FormationController extends Controller
     }
 
     public function AjouterFormation(){
-        $personnels = Personnel::all();
-        return view ('formations/ajouter', compact('personnels'));
+        $personnel = session('personnel');
+        return view ('formations/ajouter', compact('personnel'));
      }
 
         public function AjouterFormationTraitement(Request $request){
@@ -70,7 +70,7 @@ $request->validate([
         $formation->personnel_id = $request->personnel_id;
         $formation->save();
 
-        return back()->with('status', "La formation a bien été ajouté avec succés.");
+        return redirect('/formations')->with('status', "La formation a bien été ajouté avec succés.");
 
     }
 
@@ -110,8 +110,8 @@ public function listeDformation()
     public function ModifierFormation($id)
 {
     $formations = Formation::findOrFail($id);
-    $personnels = session('personnel');
-    return view('formations/modifier', compact('formations', 'personnels'));
+    $personnel = session('personnel');
+    return view('formations/modifier', compact('formations', 'personnel'));
 
 }
 
@@ -145,7 +145,7 @@ public function ModifierFormationTraitement(Request $request)
     $formation->personnel_id = $request->personnel_id;
     $formation->update();
 
-    return back()->with('status', "La formation été modifié avec succés.");
+    return redirect('/formations')->with('status', "La formation été modifié avec succés.");
 
 }
 
