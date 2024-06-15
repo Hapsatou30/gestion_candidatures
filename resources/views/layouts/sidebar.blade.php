@@ -51,11 +51,16 @@
             </div>
             <ul class="logout-list">
                 <li>
-                    <a href="#">
+                    <a href="/deconnexion">
                         <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
                             <path class="icon-path" fill="white" d="M5 11h8v2H5v3l-5-4l5-4zm-1 7h2.708a8 8 0 1 0 0-12H4a9.99 9.99 0 0 1 8-4c5.523 0 10 4.477 10 10s-4.477 10-10 10a9.99 9.99 0 0 1-8-4"/>
                         </svg> 
                         Deconnexion
+                        @if (session('status'))
+                        <div class="alert alert-success">
+                            <a href="/deconnexion">{{ session('status') }}</a>
+                        </div>
+                    @endif
                     </a>
                 </li>
             </ul>

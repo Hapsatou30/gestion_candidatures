@@ -48,6 +48,7 @@ Route::get('/personnels/{id}', [PersonnelController::class, 'show'])->name('pers
 //routes authentifcation personnels 
 Route::get('/connexionPersonnel', [PersonnelController::class, 'connexion']);
 Route::post('/verification', [PersonnelController::class, 'verification']);
+Route::get('/deconnexion', [PersonnelController::class, 'deconnexion']);
 
 
 //route pour l'email
