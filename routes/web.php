@@ -59,6 +59,7 @@ Route::get('/send-my-email', function () {
     return 'Email has been sent!';
 });
 
+
 Route::get('/candidature/{id}', [CandidatureController::class, 'show'])->name('candidature.show');
 //candidat et candidature
 Route::middleware(['auth', 'candidat'])->group(function (){

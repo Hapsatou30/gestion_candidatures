@@ -1,49 +1,18 @@
+@extends('layouts.sidebar')
 
-<style>.candidature-detail {
-    padding: 20px;
-}
-
-.header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.photo img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-right: 20px;
-}
-
-.info h1 {
-    margin: 0;
-    font-size: 24px;
-}
-
-.biographie, .motivation, .cv {
-    margin-bottom: 20px;
-}
-
-.cv a {
-    display: inline-block;
-    margin-top: 10px;
-}
-
-
-</style>
-
-<link href="{{ asset('css/candidature.css') }}" rel="stylesheet">
-
-<div class="container-fluid">
+@section('content')
+<link href="{{ asset('css/candidatureDetail.css') }}" rel="stylesheet">
+<div class="container">
     <div class="candidature-detail">
         <div class="header">
-            <div class="photo">
-                <img src="{{ asset('storage/' . $candidature->candidat->photo) }}" alt="Photo de {{ $candidature->candidat->prenom }} {{ $candidature->candidat->nom }}">
             </div>
             <div class="info">
-                <h1>{{ $candidature->candidat->prenom }} {{ $candidature->candidat->nom }}</h1>
-                <p>Age: {{ \Carbon\Carbon::parse($candidature->candidat->date_naissance)->age }} ans</p>
+                <img src="{{ asset('storage/' . $candidature->candidat->photo) }}" alt="Photo de {{ $candidature->candidat->prenom }} {{ $candidature->candidat->nom }}">
+                <div class="name">
+                    <h2>Prénom: {{ $candidature->candidat->prenom }} </h2>
+                    <h2>Nom: {{ $candidature->candidat->nom }}</h2>
+                </div>
+                <h2>Age: {{ \Carbon\Carbon::parse($candidature->candidat->date_naissance)->age }} ans</h2>
             </div>
         </div>
         <div class="biographie">
@@ -55,10 +24,16 @@
             <p>{{ $candidature->motivation }}</p>
         </div>
         <div class="cv">
-            <h2>CV</h2>
-            <a href="{{ asset('storage/' . $candidature->candidat->cv) }}" class="btn btn-primary" target="_blank">Voir le CV</a>
+            <img src="{{ asset('images/bi_file-pdf.png') }}" alt="">
+            <p>CV <a href="{{ asset('storage/' . $candidature->candidat->cv) }}" class="btn btn-danger" target="_blank"><i class="fas fa-download"></i> </a>
+            </p>
         </div>
-        <a href="{{ url()->previous() }}" class="btn btn-primary">Retour</a>
+        <div class="reponse">
+            <a href="#" class="btn btn-success add-button">Accepter</a>
+            <a href="#" class=" btn btn-danger add-button ">Refuser</a>
+        </div>
+            
+        <a href="" class="btn btn-danger">Retour</a>
     </div>
 </div>
-
+@endsection

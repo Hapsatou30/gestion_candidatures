@@ -16,7 +16,7 @@ class Personnel extends Model
         'email',      // L'email du membre du personnel
         'mot_passe',  // Le mot de passe du membre du personnel
     ];
-
+   
     // Définition de la relation one-to-many avec le modèle `Formation`
     public function formations()
     {

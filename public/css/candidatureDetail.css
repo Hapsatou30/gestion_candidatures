@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+:root{
+    --couleur-pricinpal:#CE0033;
+    --police:Nunito Sans;
+    --taille-titre:30px;
+    --taille-texte:18px;
+}
+.container-fluid{
+    margin-left: 1%;
+}
+.candidature-detail .photo{
+    width: 150px;
+}
+.info{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 50px;
+}
+.info img{
+    width: 150px;
+    height: 200px;
+}
+p{
+    width:80%;
+    margin-left: 20px;
+    text-align: justify;
+    font-size: var(--taille-texte);
+    margin-bottom: 40px;
+}
+.cv p{
+    margin-top: 10px;
+    word-spacing: 10px;
+    margin-left: 5%;
+
+}
+.reponse {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
