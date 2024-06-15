@@ -48,6 +48,7 @@ Route::get('/personnels/{id}', [PersonnelController::class, 'show'])->name('pers
 //routes authentifcation personnels 
 Route::get('/connexionPersonnel', [PersonnelController::class, 'connexion']);
 Route::post('/verification', [PersonnelController::class, 'verification']);
+Route::get('/deconnexion', [PersonnelController::class, 'deconnexion']);
 
 
 //route pour l'email
@@ -77,8 +78,9 @@ Route::middleware(['personnel'])->group(function () {
 Route::get('/espacePersonnel',[PersonnelController::class,'voirEspace'])->name('espacePersonnel');
 Route::post('/modifier/formation-traitement/', [FormationController::class, 'ModifierFormationTraitement']);
 Route::get('/modifier-formation/{id}', [FormationController::class, 'ModifierFormation'])->name(('modifierFormation'));
-Route::delete('/formations/{id}', [FormationController::class, 'destroy'])->name('formations.destroy');  
+Route::get('/Suppformations/{id}', [FormationController::class, 'destroy'])->name('formations.destroy');
 Route::get('/formations/ajouter', [FormationController::class, 'AjouterFormation']);
+Route::post('/ajouter/formation-traitement', [FormationController::class, 'AjouterFormationTraitement']);
 Route::get('/formations', [FormationController::class, 'listeDformation'])->name('listeFormation');
 
 

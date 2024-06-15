@@ -32,7 +32,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{route('listeFormation')}}">
+                        <a href="/formations">
                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
                                 <path class="icon-path" fill="white" fill-rule="evenodd" d="M11.49 4.11a10.451 10.451 0 0 0-9.26-.74a1.163 1.163 0 0 0-.731 1.08v11.66c0 .78.789 1.314 1.514 1.024a8.558 8.558 0 0 1 7.582.608l1.135.68c.087.053.18.075.269.074a.503.503 0 0 0 .27-.073l1.134-.681a8.558 8.558 0 0 1 7.582-.608a1.104 1.104 0 0 0 1.514-1.025V4.45c0-.476-.29-.903-.731-1.08a10.451 10.451 0 0 0-9.259.742l-.51.306zm1.26 2.39a.75.75 0 0 0-1.5 0V16a.75.75 0 0 0 1.5 0z" clip-rule="evenodd"/><path class="icon-path" fill="white" d="M2.725 19.042a6.5 6.5 0 0 1 6.55 0l1.087.634a3.25 3.25 0 0 0 3.276 0l1.087-.634a6.5 6.5 0 0 1 6.55 0l.103.06a.75.75 0 1 1-.756 1.296l-.103-.06a5 5 0 0 0-5.038 0l-1.088.634a4.75 4.75 0 0 1-4.786 0l-1.088-.634a5 5 0 0 0-5.038 0l-.103.06a.75.75 0 0 1-.756-1.296z"/>
                             </svg> 
@@ -51,11 +51,16 @@
             </div>
             <ul class="logout-list">
                 <li>
-                    <a href="#">
+                    <a href="/deconnexion">
                         <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
                             <path class="icon-path" fill="white" d="M5 11h8v2H5v3l-5-4l5-4zm-1 7h2.708a8 8 0 1 0 0-12H4a9.99 9.99 0 0 1 8-4c5.523 0 10 4.477 10 10s-4.477 10-10 10a9.99 9.99 0 0 1-8-4"/>
                         </svg> 
                         Deconnexion
+                        @if (session('status'))
+                        <div class="alert alert-success">
+                            <a href="/deconnexion">{{ session('status') }}</a>
+                        </div>
+                    @endif
                     </a>
                 </li>
             </ul>

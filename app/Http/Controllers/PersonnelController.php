@@ -38,6 +38,15 @@ class PersonnelController extends Controller
             return back()->with('status', 'Désolé, vous n\'avez pas de compte avec cet email.');
         }
     }
+    // Déconnecte le personnel
+    public function deconnexion(Request $request)
+    {
+        // Supprimer les informations du personnel de la session
+        $request->session()->forget('personnel');
+        // Rediriger vers la page de connexion avec un message
+        return redirect('/connexionPersonnel')->with('status', 'Vous venez de vous déconnecter.');
+    }
+
     
 // persodetails
     public function voirEspace()
