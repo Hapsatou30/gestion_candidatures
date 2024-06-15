@@ -103,15 +103,17 @@ hr {
 
 .main-content{
     margin-left: 250px;
+    margin-top: 180px;
 }
 .top-bar{
     height: 118px;
+    position: fixed;
     margin-left: 250px;
     border-bottom: 1px solid var(--couleur-principale);
     display: flex;
     align-items: center;
     justify-content: flex-end;
-   
+   background-color: #fff;
 }
 .top-bar h4{
    text-align: right;
