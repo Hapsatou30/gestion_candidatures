@@ -1,19 +1,5 @@
-<!-- resources/views/personnels/index.blade.php -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 20px;
-        }
+<style>
+       
         .dashboard-container {
             max-width: 1200px;
             margin: auto;
@@ -104,9 +90,8 @@
             margin-top: 40px;
         }
     </style>
-
-</head>
-<body>
+@extends('layouts.sidebar')
+@section('content')
     <div class="dashboard-container">
         <div style="display: flex; justify-content: space-between; align-items: center;">
         </div>
@@ -142,5 +127,4 @@
         </table>
         {{-- {{ route('personnels.show', $personnel->id) }} --}}
     </div> 
-</body>
-</html>
+    @endsection
