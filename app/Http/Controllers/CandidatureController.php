@@ -18,10 +18,10 @@ class CandidatureController extends Controller
 {
 
 
-    
+
     public  function postuler($id){
         $formation = Formation::find($id);
-        
+
         if (Auth::check()) {
             $candidat = Auth::user(); // Récupère l'utilisateur authentifié
             return view('candidatures.index', compact('formation', 'candidat'));
@@ -41,15 +41,18 @@ class CandidatureController extends Controller
         $candidatures = Candidature::with('formation')
                                    ->where('candidat_id', $candidatId)
                                    ->get();
-        
+
         return view('candidats/candidature', compact('candidatures'));
     }
     public function show($id)
     {
         $candidature = Candidature::with('candidat')->findOrFail($id);
-        
+
         return view('candidatures/details', compact('candidature'));
     }
 
-   
+
+  
+
+
 }

@@ -1,11 +1,11 @@
 <style>
-       
-        
+
+
         h1 {
         color: var(--couleur-pricinpal);
     font-size: var(--taille-titre);
     margin-left: 20px;
-    
+
     line-height: 42px;
     margin-bottom: 30px;
         }
@@ -63,7 +63,7 @@
             justify-content: space-around;
             padding: 20px;
         }
-       
+
         .card{
             border-radius: 25px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -80,24 +80,24 @@
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Widget 1</h5>
-                            <p class="card-text">Contenu du widget 1.</p>
+                            <h5 class="card-title">Inscription dans les 24 h</h5>
+                            <p class="card-text">{{ $candidatureCount }}</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Widget 2</h5>
-                            <p class="card-text">Contenu du widget 2.</p>
+                            <h5 class="card-title">Nombre de Candidature</h5>
+                            <p class="card-text">{{ $nbrCandidat }}</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Widget 3</h5>
-                            <p class="card-text">Contenu du widget 3.</p>
+                            <h5 class="card-title">Candidature Vérifié</h5>
+                            <p class="card-text">{{ $verifieCandidatureCount }}</p>
                         </div>
                     </div>
                 </div>
@@ -105,11 +105,12 @@
         </div>
 
         {{-- {{ route('personnels.show', $personnel->id) }} --}}
-    </div> 
+    </div>
     <div class="tableau">
 
         <h1>Formations</h1>
         <table>
+            @foreach($formations as $formation)
             <thead>
                 <tr>
                     <th>Image</th>
@@ -121,14 +122,14 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($personnels as $personnel)
+
                     <tr>
-                        <td><img src="{{ asset('images/formation_card.png') }}" class="card-img-top"></td>
-                        <td>{{ $personnel->formation }}</td>
-                        <td>{{ $personnel->statut }}</td>
-                        <td>{{ $personnel->debut }}</td>
-                        <td>{{ $personnel->fin }}</td>
-                        <td><a href="#">Détails</a></td>
+                        <td> <img src="{{ $formation->image}}" alt="Image" width="100"></td>
+                        <td>{{ $formation->nom }}</td>
+                        <td>{{ $formation->statut }}</td>
+                        <td>{{ $formation->debut }}</td>
+                        <td>{{ $formation->fin }}</td>
+                        <td><a href="{{ route('formdetails', $formation->id) }}">Détails</a></td>
                     </tr>
                 @endforeach
             </tbody>
