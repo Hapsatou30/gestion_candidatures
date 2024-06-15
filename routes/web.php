@@ -80,6 +80,7 @@ Route::post('/modifier/formation-traitement/', [FormationController::class, 'Mod
 Route::get('/modifier-formation/{id}', [FormationController::class, 'ModifierFormation'])->name(('modifierFormation'));
 Route::delete('/formations/{id}', [FormationController::class, 'destroy'])->name('formations.destroy');  
 Route::get('/formations/ajouter', [FormationController::class, 'AjouterFormation']);
+Route::post('/ajouter/formation-traitement', [FormationController::class, 'AjouterFormationTraitement']);
 Route::get('/formations', [FormationController::class, 'listeDformation'])->name('listeFormation');
 
 

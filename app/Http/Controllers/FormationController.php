@@ -28,20 +28,33 @@ class FormationController extends Controller
      }
 
         public function AjouterFormationTraitement(Request $request){
-        $request->validate([
-            'nom' => 'required',
-            'description' => 'required',
-            'competences' => 'required',
-            'debouches' => 'required', 
-            'date_debut' => 'required',
-            'date_fin' => 'required',
-            'date_limite' => 'required',
-            'image' => 'required',
-            'cohorte' => 'required',
-            'statut' => 'required',
-            'personnel_id' => 'required',
+        // Valide les données de la requête
+$request->validate([
+    'nom' => 'required',
+    'cohorte' => 'required',
+    'date_debut' => 'required',
+    'date_fin' => 'required',
+    'date_limite' => 'required',
+    'image' => 'required',
+    'competences' => 'required',
+    'debouches' => 'required',
+    'description' => 'required',
+    'statut' => 'required',
+    'personnel_id' => 'required',
+], [
+    'nom.required' => 'Veuillez entrer le nom de la formation.',
+    'cohorte.required' => 'Veuillez entrer la cohorte de la formation.',
+    'date_debut.required' => 'Veuillez choisir la date de début de la formation.',
+    'date_fin.required' => 'Veuillez choisir la date de fin de la formation.',
+    'date_limite.required' => 'Veuillez choisir la date limite.',
+    'image.required' => 'Veuillez entrer l\'URL de l\'image illustrative de la formation.',
+    'competences.required' => 'Veuillez entrer les compétences visées par la formation.',
+    'debouches.required' => 'Veuillez entrer les débouchés de la formation.',
+    'description.required' => 'Veuillez entrer la description de la formation.',
+    'statut.required' => 'Veuillez choisir le statut de la formation.',
+    'personnel_id.required' => 'Veuillez choisir le personnel responsable de la formation.',
+]);
 
-        ]);
 
         $formation = new Formation();
         $formation->nom = $request->nom;
