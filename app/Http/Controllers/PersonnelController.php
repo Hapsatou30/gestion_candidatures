@@ -1,10 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Http\Request;
+
+use Carbon\Carbon;
+use App\Models\Formation;
 
 use App\Models\Personnel;
+use App\Models\Candidature;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class PersonnelController extends Controller
 {
@@ -21,7 +25,7 @@ class PersonnelController extends Controller
     {
         // Récupérer le personnel par son adresse email
         $personnel = Personnel::where('email', $request->input('email'))->first();
-    
+
         if ($personnel) {
             // Vérifie si le mot de passe MD5 est correct
             if ($personnel->mot_passe === md5($request->input('mot_passe'))) {
@@ -47,15 +51,19 @@ class PersonnelController extends Controller
         return redirect('/connexionPersonnel')->with('status', 'Vous venez de vous déconnecter.');
     }
 
-    
-// persodetails
+
+    // persodetails
     public function voirEspace()
     {
-        // Récupérer toutes les entrées de la table personnels
-        $personnels = Personnel::all();
 
+        $now = Carbon::now();
+        $last24Hours = $now->subDay();
+        $candidatureCount = Candidature::where('created_at', '>=', $last24Hours)->count();
+        $formations = Formation::all();
+        $nbrCandidat = Candidature::all()->count();
+        $verifieCandidatureCount = Candidature::whereIn('etat', ['accepté', 'rejeté'])->count();
         // Passer les données à la vue
-        return view('personnels.espacePerso', compact('personnels'));
+        return view('personnels.espacePerso', compact('formations', 'candidatureCount', 'nbrCandidat', 'verifieCandidatureCount'));
     }
 
 
@@ -76,6 +84,6 @@ class PersonnelController extends Controller
     //     return view('personnels.index', compact('personnels'));
     // }
 
-   
+
 
 }

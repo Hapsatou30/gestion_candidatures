@@ -14,7 +14,7 @@
                     </div>
                     <a class="btn btn-danger m-5" style="width: 10rem;" href="">POSTULER</a>
                   </div>
-                  
+
             </div> --}}
             <div class="col p-5">
                 <div class="card mt-5 p-3" style="width: 30rem;" id="card">
@@ -40,7 +40,7 @@
                 <a class="nav-link text-dark" data-toggle="tab" href="#photo" onclick="showContent('photo')">PÉDAGOGIE ACTIVE</a>
             </li>
         </ul>
-        
+
         <div class="tab-content mt-5">
             <div id="tout" class="tab-pane fade show active">
                 <div class="container text-start">
@@ -63,7 +63,7 @@
                         <h5 class="text-uppercase">Débouchés</h5>
                         <p>{{$formation->debouches}}</p>
                       </div>
-                  
+
                     </div>
                   </div>
             </div>
@@ -86,9 +86,9 @@
         <div class="container mt-5  text-center">
             <h1 class="mb-5">AUTRES RÉFÉRENTIELS</h1>
             <div class="row">
-                @foreach ($formations as $formation) 
+                @foreach ($formations as $formation)
                 <div class="col">
-                                  
+
                  <a href="{{ route('detailFormation', $formation->id) }}">
                     <div class="card mb-5" style="width: 15rem;">
                         <img src="{{ $formation->image }}" class="card-img-top"
@@ -99,7 +99,7 @@
                         </div>
                     </div>
                  </a>
-                
+
                 </div>
                 @endforeach
 

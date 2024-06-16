@@ -11,7 +11,7 @@ use Carbon\Carbon;
 class FormationController extends Controller
 {
 
-    
+
     public function index(){
         $formations = Formation::all();
         return view('formations.index', compact('formations'));
@@ -84,7 +84,7 @@ public function listeDformation()
     foreach ($formations as $formation) {
         $dateDebut = Carbon::parse($formation->date_debut);
         $dateFin = Carbon::parse($formation->date_fin);
-        
+
         // Calculer la différence en mois et jours
         $diffEnJours = $dateDebut->diffInDays($dateFin);
 
@@ -105,7 +105,7 @@ public function destroy($id)
     // Retourne en arrière
     return back()->with('success', 'Formation supprimée avec succès');
 }
-    
+
     public function ModifierFormation($id)
 {
     $formations = Formation::findOrFail($id);
@@ -126,7 +126,7 @@ public function ModifierFormationTraitement(Request $request)
         'image' => 'required',
         'description' => 'required',
         'cohorte' => 'required',
-        'statut' => 'required',       
+        'statut' => 'required',
         'personnel_id' => 'required|exists:personnels,id',
     ]);
 
@@ -149,9 +149,10 @@ public function ModifierFormationTraitement(Request $request)
 }
 
 
-public function formationshow()
+public function formationshow($id)
 {
-    return view('formations.detailFormationb');
+    $formation = Formation::find($id);
+    return view('formations.detailFormationb', compact('formation'));
 }
 
 

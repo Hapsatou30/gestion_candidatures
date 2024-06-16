@@ -20,7 +20,7 @@ Route::get('formation/detail/{id}', [FormationController::class, 'detail'])->nam
 
 
 // de form
-Route::get('/formdetails', [FormationController::class, 'formationshow']);
+Route::get('/formdetails/{id}', [FormationController::class, 'formationshow'])->name('formdetails');
 
 
 
@@ -45,7 +45,7 @@ Route::get('/personnels/{id}', [PersonnelController::class, 'show'])->name('pers
 
 
 
-//routes authentifcation personnels 
+//routes authentifcation personnels
 Route::get('/connexionPersonnel', [PersonnelController::class, 'connexion']);
 Route::post('/verification', [PersonnelController::class, 'verification']);
 Route::get('/deconnexion', [PersonnelController::class, 'deconnexion']);
@@ -86,7 +86,7 @@ Route::get('/formations/ajouter', [FormationController::class, 'AjouterFormation
 Route::post('/ajouter/formation-traitement', [FormationController::class, 'AjouterFormationTraitement']);
 Route::get('/formations', [FormationController::class, 'listeDformation'])->name('listeFormation');
 //Affichage liste des candidat pour une formation
-Route::get('/listeCandidatPostulez/{id}',[FormationController::class,'CandidatPostulez']); 
+Route::get('/listeCandidatPostulez/{id}',[FormationController::class,'CandidatPostulez']);
 
 
 
