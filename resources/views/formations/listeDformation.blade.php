@@ -83,14 +83,15 @@
                                         <td>{{ $formation->nom }}</td>
                                         <td>{{ $formation->dureeEnJours }}</td>
                                         <td class="actions">
-                                            <a href="#" class="view-button" title="Voir détails"><i class="fas fa-eye"></i></a>
+                                            <a href="/formdetails/{{$formation->id}}" class="view-button" title="Voir détails"><i class="fas fa-eye"></i></a>
+                                            <a href="/listeCandidatPostulez/{{$formation->id}}" class="candidat-button" title="Voir les candidatures"><i class="fas fa-user"></i></i></a>
                                             <a href="{{ route('modifierFormation', $formation->id) }}" class="edit-button" title="Modifier"><i class="fas fa-edit"></i></a>
                                             <a href="/Suppformations/{{$formation->id}}" class="delete-button" title="Supprimer"><i class="fas fa-trash"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach
                             </tbody>
-                      
+                        </table>
                     </div> 
                 </div>
             </div>

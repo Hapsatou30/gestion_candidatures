@@ -77,12 +77,6 @@ class PersonnelController extends Controller
     }
 
 
-    //
-    // public function index()
-    // {
-    //     $personnels = Personnel::all();
-    //     return view('personnels.index', compact('personnels'));
-    // }
 
 
 

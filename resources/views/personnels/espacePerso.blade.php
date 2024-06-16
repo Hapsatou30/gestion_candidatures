@@ -127,9 +127,9 @@
                         <td> <img src="{{ $formation->image}}" alt="Image" width="100"></td>
                         <td>{{ $formation->nom }}</td>
                         <td>{{ $formation->statut }}</td>
-                        <td>{{ $formation->debut }}</td>
-                        <td>{{ $formation->fin }}</td>
-                        <td><a href="{{ route('formdetails', $formation->id) }}">Détails</a></td>
+                        <td>{{ $formation->date_debut }}</td>
+                        <td>{{ $formation->date_fin }}</td>
+                        <td><a href="{{ route('formdetails', $formation->id) }}"><i class="fas fa-eye"></a></td>
                     </tr>
                 @endforeach
             </tbody>

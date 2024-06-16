@@ -26,26 +26,27 @@
 } 
 .container1{
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding-top:46px;
 }
 .profil{
     margin-left: 30px;
+    
 }
-.profil .nom1{
+.profil h3{
     color:var(--couleur-pricinpal);
-    font-size:var(--taille-text) ;
-}
-.profil .nom2{
-    font-size:var(--taille-text) ;
+  
 }   
 .container1 img{
    width: 150px;
    height: 150px;
    margin-top: 5px;
-   margin-left: 780px;
 }
 .container2{
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding-top:100px;
 }
 .cv{
@@ -55,13 +56,16 @@
     border-radius: 24px;
     border: 2px solid #E6E6E6;
     display: flex;
+    align-items: center;
     margin-left: 20px;
     margin-top: 50px;
     
 }
 .container2 .cv1{
     padding-top: 8px;
-
+}
+.cv1 img {
+    width: 150px;
 }
 .container2 .cv2{
     padding-left: 20px;
@@ -75,10 +79,11 @@
     background-color: #FAFAF5;
     border-radius: 24px;
     border: 2px solid #E6E6E6;
-    margin-left: 100px;
+    
 }
-.h1{
+h2{
     font-size: var(--taille-titre);
+    text-align: center;
 }
 .info h1{
     text-align: center;
