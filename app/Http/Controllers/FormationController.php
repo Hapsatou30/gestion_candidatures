@@ -159,10 +159,9 @@ public function formationshow($id)
 public function CandidatPostulez($id){
 
     $formation = Formation::findOrFail($id);
+    $candidatures = Candidature::with('candidat')->get();
 
-    $candidats = $formation->candidats;
-
-    return view('formations.liste_candidat', compact('formation','candidats'));
+    return view('formations.liste_candidat', compact('formation','candidatures'));
 }
 
 }

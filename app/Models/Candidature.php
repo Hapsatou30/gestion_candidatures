@@ -32,4 +32,5 @@ public function candidat()
         return $this->belongsTo(Candidat::class);
     }
 
+
 }

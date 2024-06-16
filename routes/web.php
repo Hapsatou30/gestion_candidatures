@@ -63,12 +63,11 @@ Route::get('/Suppformations/{id}', [FormationController::class, 'destroy'])->nam
 Route::get('/formations/ajouter', [FormationController::class, 'AjouterFormation']);
 Route::post('/ajouter/formation-traitement', [FormationController::class, 'AjouterFormationTraitement']);
 Route::get('/formations', [FormationController::class, 'listeDformation'])->name('listeFormation');
-Route::get('/listeCandidatPostulez/{id}',[FormationController::class,'CandidatPostulez']);
-Route::get('/candidature/{id}', [CandidatureController::class, 'show'])->name('candidature.show');
+Route::get('/listeCandidatPostulez/{formation}',[FormationController::class,'CandidatPostulez']);
+Route::get('/candidature/{candidature}', [CandidatureController::class, 'show'])->name('candidature.show');
 Route::post('/candidature/{id}/accepter', [CandidatureController::class, 'accepter'])->name('candidature.accepter');
 Route::post('/candidature/{id}/refuser', [CandidatureController::class, 'refuser'])->name('candidature.refuser');
 Route::get('/formdetails/{id}', [FormationController::class, 'formationshow'])->name('formdetails');
-
 Route::get('/personnels/{id}', [PersonnelController::class, 'show'])->name('personnels.espacePerso');
 
 });

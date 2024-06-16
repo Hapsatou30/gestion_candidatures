@@ -110,7 +110,7 @@
 
         <h1>Formations</h1>
         <table>
-            @foreach($formations as $formation)
+            
             <thead>
                 <tr>
                     <th>Image</th>
@@ -122,7 +122,7 @@
                 </tr>
             </thead>
             <tbody>
-
+                @foreach($formations as $formation)
                     <tr>
                         <td> <img src="{{ $formation->image}}" alt="Image" width="100"></td>
                         <td>{{ $formation->nom }}</td>
