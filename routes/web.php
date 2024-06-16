@@ -61,6 +61,8 @@ Route::get('/send-my-email', function () {
 
 
 Route::get('/candidature/{id}', [CandidatureController::class, 'show'])->name('candidature.show');
+Route::post('/candidature/{id}/accepter', [CandidatureController::class, 'accepter'])->name('candidature.accepter');
+Route::post('/candidature/{id}/refuser', [CandidatureController::class, 'refuser'])->name('candidature.refuser');
 //candidat et candidature
 Route::middleware(['auth', 'candidat'])->group(function (){
 Route::get('/postuler/{id}',[CandidatureController::class,'postuler'])->name('postuler');

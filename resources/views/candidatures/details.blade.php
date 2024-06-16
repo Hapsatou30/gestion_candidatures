@@ -28,11 +28,33 @@
             <p>CV <a href="{{ asset('storage/' . $candidature->candidat->cv) }}" class="btn btn-danger" target="_blank"><i class="fas fa-download"></i> </a>
             </p>
         </div>
-        <div class="reponse">
-            <a href="#" class="btn btn-success add-button">Accepter</a>
-            <a href="#" class=" btn btn-danger add-button ">Refuser</a>
-        </div>
-            
+
+        @if(is_null($candidature->etat))
+            <div class="reponse">
+                <form action="{{ route('candidature.accepter', $candidature->id) }}" method="POST" style="display:inline;">
+                    @csrf
+                    <button type="submit" class="btn btn-success add-button">Accepter</button>
+                </form>
+                <form action="{{ route('candidature.refuser', $candidature->id) }}" method="POST" style="display:inline;">
+                    @csrf
+                    <button type="submit" class="btn btn-danger add-button">Refuser</button>
+                </form>
+            </div>
+        @else
+            <div class="reponse">
+                <p class="text-success">Candidature {{ $candidature->etat }}</p>
+            </div>
+        @endif
+        {{-- <div class="reponse">
+            <form action="{{ route('candidature.accepter', $candidature->id) }}" method="POST" style="display:inline;">
+                @csrf
+                <button type="submit" class="btn btn-success add-button">Accepter</button>
+            </form>
+            <form action="{{ route('candidature.refuser', $candidature->id) }}" method="POST" style="display:inline;">
+                @csrf
+                <button type="submit" class="btn btn-danger add-button">Refuser</button>
+            </form>
+        </div> --}}
         <a href="" class="btn btn-danger">Retour</a>
     </div>
 </div>
