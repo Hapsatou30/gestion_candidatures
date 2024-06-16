@@ -47,8 +47,8 @@ Route::middleware(['auth', 'candidat'])->group(function (){
 Route::get('/postuler/{id}',[CandidatureController::class,'postuler'])->name('postuler');
 Route::post('/sauvegardeCandidature', [CandidatureController::class, 'sauvegardeCandidature']);
 Route::get('/mescandidatures',[CandidatureController::class, 'affichageListe'] );
-Route::post('/modifier/profil-traitement/', [CandidatController::class, 'ModifierProfilTraitement'])->name('ModifierProfilTraitement');
-Route::get('/modifier-profil/{id}', [CandidatController::class, 'ModifierProfil']);
+Route::get('/modifier-profil/{id}', [CandidatController::class, 'ModifierProfil'])->name('candidats.modifier');
+Route::post('/modifier/profil-traitement/{id}', [CandidatController::class, 'ModifierProfilTraitement'])->name('ModifierProfilTraitement');
 Route::get('/profil', [CandidatController::class, 'show'])->name('profil.show');
 
 });

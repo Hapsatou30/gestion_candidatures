@@ -79,11 +79,11 @@
     background-color: #FAFAF5;
     border-radius: 24px;
     border: 2px solid #E6E6E6;
-    
 }
 h2{
     font-size: var(--taille-titre);
     text-align: center;
+    margin-top: 20px;
 }
 .info h1{
     text-align: center;

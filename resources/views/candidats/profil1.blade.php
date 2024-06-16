@@ -47,12 +47,13 @@
                     <p>{{ $candidat->sexe }}</p> 
                 </div>
             </div>
-            <button>
-                <p>Editer les informations</p>
-                <img src="{{asset('images/Vector.png')}}" alt="">
-            </button>
+                <a href="/modifier-profil/{{$candidat->id}}">
+                    <button>
+                        <p>Editer les informations</p>
+                        <img src="{{asset('images/Vector.png')}}" alt="">
+                    </button>
+                </a>
         </div>
     </div>
-    <button class="retourner">Retour</button>
 </div>
 @endsection

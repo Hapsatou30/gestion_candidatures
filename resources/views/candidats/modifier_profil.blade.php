@@ -1,24 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="{{ asset('css/modifier_profil.css') }}" rel="stylesheet">
-    <title>Document</title>
-</head>
-<body>
-<div class="container-fluid"> 
-</div>
-<div class="container">
-        <h1>Modifier votre profil</h1>
+@extends('layouts.app')
+@section('content')
 
-        <form action="{{route('ModifierProfilTraitement')}}" method="POST" enctype="multipart/form-data">
+<link href="{{ asset('css/modifier_profil.css') }}" rel="stylesheet">
+
+<div class="container">
+    <h1>Modifier votre profil</h1>
+
+    <form action="{{ route('ModifierProfilTraitement', $candidats->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('POST')
-            <div class="form-row">
-            <input type="text" name="id" style="display: none" value="{{ old('id', $candidats->id) }}" >
+        <div class="form-row">
+            <input type="hidden" name="id" value="{{ old('id', $candidats->id) }}">
             <div class="form-group col-md-4">
                 <label for="nom">Nom:</label>
                 <input type="text" id="nom" name="nom" class="form-control" value="{{ old('nom', $candidats->nom) }}">
@@ -41,9 +33,9 @@
             </div>
             <div class="form-group col-md-4">
                 <label for="sexe">Sexe</label>
-                <select id="sexe" name="sexe" class="form-control" value="{{ old('sexe', $candidats->sexe) }}">
-                    <option value="M">Masculin</option>
-                    <option value="F">Féminin</option>
+                <select id="sexe" name="sexe" class="form-control">
+                    <option value="M" {{ old('sexe', $candidats->sexe) == 'M' ? 'selected' : '' }}>Masculin</option>
+                    <option value="F" {{ old('sexe', $candidats->sexe) == 'F' ? 'selected' : '' }}>Féminin</option>
                 </select>
             </div>
             <div class="form-group col-md-4">
@@ -52,26 +44,27 @@
             </div>
             <div class="form-group col-md-4">
                 <label for="mot_passe">Mot de passe:</label>
-                <input type="password" id="mot_passe" name="mot_passe" class="form-control" value="{{ old('mot_passe', $candidats->mot_passe) }}">
+                <input type="password" id="mot_passe" name="mot_passe" class="form-control">
             </div>
             <div class="form-group col-md-4">
                 <label for="photo">Photo de profil:</label>
-                <input type="file" id="photo" name="photo" class="form-control" value="{{ old('photo', $candidats->photo) }}">
+                <input type="file" id="photo" name="photo" class="form-control">
+                @if ($candidats->photo)
+                    <img src="{{ asset('storage/' . $candidats->photo) }}" alt="Photo de profil actuelle" style="max-width: 100px; margin-top: 10px;">
+                @endif
             </div>
             <div class="form-group col-md-4">
                 <label for="cv">Votre CV:</label>
-                <input type="file" id="cv" name="cv" class="form-control" value="{{ old('cv', $candidats->cv) }}">
+                <input type="file" id="cv" name="cv" class="form-control">
+                @if ($candidats->cv)
+                    <a href="{{ asset('storage/' . $candidats->cv) }}" target="_blank">Voir CV actuel</a>
+                @endif
             </div>
             <br>
             <button type="submit" class="btn">Enregistrer</button>
-            <br>
-            <br>
-            <a href="/profil/{{$candidats->id}}" class="btn">Retour</a>
-            </div>
-        </form>
+            <br><br>
+            <a href="/profil" class="btn">Retour</a>
+        </div>
+    </form>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>    
-</body>
-</html>
-
+@endsection
