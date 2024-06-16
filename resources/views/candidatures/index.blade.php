@@ -6,11 +6,13 @@
             margin-left: auto;
             margin-right: auto;
         }
-        .container .row{
+
+        .container .row {
             display: flex;
             align-items: center;
             justify-content: space-around
         }
+
         .image-container img {
             width: 400px
         }
@@ -59,8 +61,14 @@
             text-align: center
         }
     </style>
+@section('content')
+    @if (session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
     <div class="container">
-        
+
         <div class="row">
             <div class="col-6 image-container">
                 <img src="{{ asset('images/image3.png') }}" alt="">
@@ -70,7 +78,8 @@
                 <form method="POST" action="/sauvegardeCandidature">
                     @csrf
                     <div class="form-group">
-                        <input type="hidden" id="candidat_id" name="candidat_id" value="{{$candidat->id}}" class="form-control" required>
+                        <input type="hidden" id="candidat_id" name="candidat_id" value="{{ $candidat->id }}"
+                            class="form-control" required>
                     </div>
                     <div class="form-group">
                         <input value="{{ $formation->id }}" name="formation_id" type="hidden">

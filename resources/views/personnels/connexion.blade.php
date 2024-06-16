@@ -12,7 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
-   
+
 </head>
 
 <body>
@@ -33,11 +33,13 @@
                 @csrf
                 <div class="form-group mb-3">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Entrez votre email" required>
+                    <input type="email" class="form-control" id="email" name="email"
+                        placeholder="Entrez votre email" required>
                 </div>
                 <div class="form-group mb-3">
                     <label for="password">Mot de passe</label>
-                    <input type="password" class="form-control" id="password" name="mot_passe" placeholder="Entrez votre mot de passe" required>
+                    <input type="password" class="form-control" id="password" name="mot_passe"
+                        placeholder="Entrez votre mot de passe" required>
                 </div>
                 <div class="form-group">
                     <a href="#">Mot de passe oublié?</a>

@@ -56,11 +56,7 @@
                             <path class="icon-path" fill="white" d="M5 11h8v2H5v3l-5-4l5-4zm-1 7h2.708a8 8 0 1 0 0-12H4a9.99 9.99 0 0 1 8-4c5.523 0 10 4.477 10 10s-4.477 10-10 10a9.99 9.99 0 0 1-8-4"/>
                         </svg> 
                         Deconnexion
-                        @if (session('status'))
-                        <div class="alert alert-success">
-                            <a href="/deconnexion">{{ session('status') }}</a>
-                        </div>
-                    @endif
+                       
                     </a>
                 </li>
             </ul>
@@ -68,7 +64,7 @@
     </div>
     
 
-    <div class="container top-bar d-flex align-items-center justify-content-end">
+    <div class="container top-bar d-flex align-items-center justify-content-end" style="margin-top: 0">
         <h4>Bonjour {{ session('personnel')->prenom }}</h4> <hr>
     </div>
    

@@ -1,13 +1,13 @@
 @extends('layouts.sidebar')
 @section('content')
-<style>
-       
-       h1{
-        color: var(--couleur-pricinpal);
-    font-size: var(--taille-titre);
-    margin-left: 20px;
-    line-height: 42px;
-       }
+    <style>
+        h1 {
+            color: var(--couleur-pricinpal);
+            font-size: var(--taille-titre);
+            margin-left: 20px;
+            line-height: 42px;
+        }
+
         .add-button {
             display: inline-block;
             padding: 10px;
@@ -19,45 +19,56 @@
             cursor: pointer;
             text-decoration: none;
         }
+
         .add-button:hover {
             background-color: #a60028;
         }
+
         .button-container {
             text-align: right;
             margin-bottom: 20px;
         }
+
         td img {
             width: 100px;
             height: auto;
         }
-       .thead-dark th{
-    font-size: 20px;
-    background: #CE0033;
-    color: #ffffff
-    
 
+        .thead-dark th {
+            font-size: 20px;
+            background: #CE0033;
+            color: #ffffff
         }
-        th{
-            text-align: center; /* Center align text in table cells */
-    vertical-align: middle
+
+        th {
+            text-align: center;
+            /* Center align text in table cells */
+            vertical-align: middle
         }
-        td{
+
+        td {
             margin-left: 20px;
-    text-align: justify;
-    font-size: var(--taille-texte);
-    text-align: center; /* Center align text in table cells */
-    vertical-align: middle
+            text-align: justify;
+            font-size: var(--taille-texte);
+            text-align: center;
+            /* Center align text in table cells */
+            vertical-align: middle
         }
-      a {
+
+        a {
             padding: 5px 10px;
             border: none;
             border-radius: 5px;
             text-decoration: none;
             color: rgb(5, 5, 5);
-        } 
-        
+        }
     </style>
-
+@section('content')
+    @if (session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
     <section style="margin-top:60px">
         <div class="container" style="background-color:#CE0033; width:98%;">
             <div class="container-fluid" style="background-color:#ffffff; width:100%; border-radius:50px;">
@@ -77,22 +88,26 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($formations as $formation)
-                                    <tr style="text-align:" >
+                                @foreach ($formations as $formation)
+                                    <tr style="text-align:">
                                         <td><img src="{{ asset($formation->image) }}" alt="Image de formation"></td>
                                         <td>{{ $formation->nom }}</td>
                                         <td>{{ $formation->dureeEnJours }}</td>
                                         <td class="actions">
-                                            <a href="/formdetails/{{$formation->id}}" class="view-button" title="Voir détails"><i class="fas fa-eye"></i></a>
-                                            <a href="/listeCandidatPostulez/{{$formation->id}}" class="candidat-button" title="Voir les candidatures"><i class="fas fa-user"></i></i></a>
-                                            <a href="{{ route('modifierFormation', $formation->id) }}" class="edit-button" title="Modifier"><i class="fas fa-edit"></i></a>
-                                            <a href="/Suppformations/{{$formation->id}}" class="delete-button" title="Supprimer"><i class="fas fa-trash"></i></a>
+                                            <a href="/formdetails/{{ $formation->id }}" class="view-button"
+                                                title="Voir détails"><i class="fas fa-eye"></i></a>
+                                            <a href="/listeCandidatPostulez/{{ $formation->id }}" class="candidat-button"
+                                                title="Voir les candidatures"><i class="fas fa-user"></i></i></a>
+                                            <a href="{{ route('modifierFormation', $formation->id) }}" class="edit-button"
+                                                title="Modifier"><i class="fas fa-edit"></i></a>
+                                            <a href="/Suppformations/{{ $formation->id }}" class="delete-button"
+                                                title="Supprimer"><i class="fas fa-trash"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
-                    </div> 
+                    </div>
                 </div>
             </div>
         </div>

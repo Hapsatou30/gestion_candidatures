@@ -1,5 +1,11 @@
 @extends('layouts.app')
 @section('content')
+@section('content')
+    @if (session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
     <main class="container">
         <div class="banniere text-start">
             <div class="row d-flex">
@@ -88,23 +94,23 @@
 
                     <div class="col">
                         <div class="container text-center">
-                            
+
                             <div class="row row-cols-2">
-                                @foreach ($formations as $formation) 
-                                <div class="col">
-                                                  
-                                 <a href="{{ route('detailFormation', $formation->id) }}">
-                                    <div class="card mb-5" style="width: 15rem; height:250px">
-                                        <img src="{{ $formation->image }}" class="card-img-top "
-                                            alt="formation" style=" height: 220px">
-                                        <div class="card-body">
-                                            <h4 class="card-text" >
-                                                {{ $formation->nom}}</h4>
-                                        </div>
+                                @foreach ($formations as $formation)
+                                    <div class="col">
+
+                                        <a href="{{ route('detailFormation', $formation->id) }}">
+                                            <div class="card mb-5" style="width: 15rem; height:250px">
+                                                <img src="{{ $formation->image }}" class="card-img-top " alt="formation"
+                                                    style=" height: 220px">
+                                                <div class="card-body">
+                                                    <h4 class="card-text">
+                                                        {{ $formation->nom }}</h4>
+                                                </div>
+                                            </div>
+                                        </a>
+
                                     </div>
-                                 </a>
-                                
-                                </div>
                                 @endforeach
 
                             </div>

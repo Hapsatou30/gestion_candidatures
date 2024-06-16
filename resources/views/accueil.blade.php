@@ -1,5 +1,10 @@
 @extends('layouts.app')
 @section('content')
+@if (session('status'))
+            <div class="alert alert-success" role="alert">
+                {{ session('status') }}
+            </div>
+        @endif
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <section id="caroussel" class=" container">
         <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">

@@ -22,16 +22,57 @@ class CandidatureController extends Controller
 
 
 
-    public  function postuler($id){
-        $formation = Formation::find($id);
-
+    // public function postuler($id) {
+    //     $formation = Formation::find($id);
+    
+    //     if (Auth::check()) {
+    //         $candidat = Auth::user(); // Récupère l'utilisateur authentifié
+    
+    //         // Vérifier si le candidat a déjà une candidature acceptée pour cette formation
+    //         $candidatureAcceptee = Candidature::where('formation_id', $id)
+    //             ->where('candidat_id', $candidat->id)
+    //             ->where('etat', 'accepté')
+    //             ->exists();
+    
+    //         if ($candidatureAcceptee) {
+    //             return redirect()->route('detailFormation', $formation->id)
+    //                 ->with('error', 'Vous avez déjà une candidature acceptée pour cette formation.');
+    //         }
+    
+    //         return view('candidatures.index', compact('formation', 'candidat'));
+    //     } else {
+    //         return redirect()->route('login')->with('error', 'Vous devez être connecté pour postuler.');
+    //     }
+    // }
+    public function postuler($id) {
+        $formation = Formation::findOrFail($id);
+    
+        // Vérifier si la date limite est dépassée
+        if ($formation->date_limite < now()) {
+            return redirect()->route('detailFormation', $formation->id)
+                ->with('error', 'La date limite de candidature pour cette formation est dépassée.');
+        }
+        
         if (Auth::check()) {
             $candidat = Auth::user(); // Récupère l'utilisateur authentifié
+        
+            // Vérifier si le candidat a déjà une candidature acceptée pour cette formation
+            $candidatureAcceptee = Candidature::where('formation_id', $id)
+                ->where('candidat_id', $candidat->id)
+                ->where('etat', 'accepté')
+                ->exists();
+        
+            if ($candidatureAcceptee) {
+                return redirect()->route('detailFormation', $formation->id)
+                    ->with('error', 'Vous avez déjà une candidature acceptée pour cette formation.');
+            }
+        
             return view('candidatures.index', compact('formation', 'candidat'));
         } else {
             return redirect()->route('login')->with('error', 'Vous devez être connecté pour postuler.');
         }
-      }
+    }
+    
 
     //Methode qui permet de sauvegarder une candidature
     public function sauvegardeCandidature(Request $request){
@@ -49,7 +90,7 @@ class CandidatureController extends Controller
     }
     public function show($id)
     {
-        $candidature = Candidature::with('candidat')->findOrFail($id);
+        $candidature = Candidature::with('candidat', 'formation')->findOrFail($id);
 
         return view('candidatures/details', compact('candidature'));
     }

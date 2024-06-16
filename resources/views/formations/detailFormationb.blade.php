@@ -1,6 +1,10 @@
 @extends('layouts.sidebar')
 @section('content')
-
+@if (session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
     <style>
         .container {
             display: flex;
@@ -33,7 +37,7 @@
             color: #ffffff;
         }
     </style>
-
+    <a href="/espacePersonnel" class="btn btn-danger">Retour </a>
     <div class="container">
         <div class="card1">
              <img src="{{ $formation->image }}" style="width: 80%;" class="card-img-top" alt="Photo biii">
