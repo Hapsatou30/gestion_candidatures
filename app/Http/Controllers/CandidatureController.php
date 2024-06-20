@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Models\Formation;
-
 use App\Models\Candidature;
+
 use App\Models\Notification;
 use Illuminate\Http\Request;
+use App\Mail\CandidatureEnvoyee;
 
 use App\Mail\CandidatureRefusee;
 use App\Mail\CandidatureAcceptee;
@@ -53,11 +54,48 @@ class CandidatureController extends Controller
     }
     
 
-    //Methode qui permet de sauvegarder une candidature
-    public function sauvegardeCandidature(Request $request){
-    Candidature::create($request->all());
-    return redirect('/');
+    // //Methode qui permet de sauvegarder une candidature
+    // public function sauvegardeCandidature(Request $request){
+    // Candidature::create($request->all());
+    
+    // return redirect('/');
+    // }
+    public function sauvegardeCandidature(Request $request)
+    {
+        // Valider les données de la requête si nécessaire
+        $request->validate([
+            'candidat_id' => 'required',
+            'formation_id' => 'required',
+            'biographie' => 'required',
+            'motivation' => 'required',
+        ]);
+
+        // Créer une nouvelle candidature
+        $candidature = Candidature::create($request->all());
+
+        // Récupérer les informations nécessaires pour l'email
+        $candidat = $candidature->candidat;
+        $formation = Formation::findOrFail($candidature->formation_id)->nom; // Assurez-vous que la formation existe
+
+        // Envoyer un email de confirmation au candidat
+        Mail::to($candidat->email)->send(new CandidatureEnvoyee($candidat, $formation));
+          // Récupérer le contenu de la vue de l'email
+          $contenu = View::make('emails.candidature_envoyee', [
+            'prenom' => $candidature->candidat->prenom,
+            'nom' => $candidature->candidat->nom,
+            'formation' => $formation
+        ])->render();
+
+        // Créer une notification
+        Notification::create([
+            'candidature_id' => $candidature->id,
+            'contenu' => $contenu,
+            'objet' => 'Candidature Envoyé'
+        ]);
+
+        return redirect('/')->with('success', 'Votre candidature a été soumise avec succès.');
     }
+
     public function affichageListe()
     {
         $candidatId = Auth::id();
