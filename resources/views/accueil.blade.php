@@ -258,10 +258,33 @@
         </div>
 
     </section>
+   
+    <!-- Modèle de pop-up personnalisé -->
+    <div id="custom-popup" class="custom-popup">
+        <div class="custom-popup-content">
+            <span class="close-btn" onclick="closeCustomPopup()">&times;</span>
+            <h2>Confirmation de Candidature</h2>
+            <p>Votre candidature a été soumise avec succès. Veuillez vérifier vos emails pour plus d'informations.</p>
+        </div>
+    </div>
+
     <script>
-        // Afficher un pop-up après la redirection vers cette vue
+        // Fonction pour afficher le pop-up personnalisé
+        function showCustomPopup() {
+            var popup = document.getElementById('custom-popup');
+            popup.style.display = 'block';
+        }
+
+        // Fonction pour fermer le pop-up personnalisé
+        function closeCustomPopup() {
+            var popup = document.getElementById('custom-popup');
+            popup.style.display = 'none';
+        }
+
+        // Afficher le pop-up personnalisé lorsque la page est chargée
         window.onload = function() {
-            alert('Votre candidature a été soumise avec succès. Veuillez vérifier vos emails pour plus d\'informations.');
+            showCustomPopup();
         };
     </script>
+  
 @endsection
