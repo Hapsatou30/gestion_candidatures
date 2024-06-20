@@ -22,6 +22,13 @@ class FormationController extends Controller
         $formations = Formation::all();
         return view ('formations.detail-formation',compact('formation', 'formations'));
     }
+    
+public function formationshow($id)
+{
+    $formation = Formation::find($id);
+    return view('formations.detailFormationb', compact('formation'));
+}
+
 
     public function AjouterFormation(){
         $personnel = session('personnel');
@@ -148,12 +155,6 @@ public function ModifierFormationTraitement(Request $request)
 
 }
 
-
-public function formationshow($id)
-{
-    $formation = Formation::find($id);
-    return view('formations.detailFormationb', compact('formation'));
-}
 
 
 public function CandidatPostulez($id) {

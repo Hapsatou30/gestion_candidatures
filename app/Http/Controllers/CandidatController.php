@@ -105,7 +105,7 @@ class CandidatController extends Controller
 
     public function index()
     {
-        $formations = Formation::all();
+        $formations = Formation::take(4)->get();
         return view('accueil' , compact('formations'));
     }
 

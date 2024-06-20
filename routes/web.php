@@ -44,6 +44,7 @@ Route::get('/deconnexion', [PersonnelController::class, 'deconnexion']);
 
 //candidat et candidature
 Route::middleware(['auth', 'candidat'])->group(function (){
+    
 Route::get('/postuler/{id}',[CandidatureController::class,'postuler'])->name('postuler');
 Route::post('/sauvegardeCandidature', [CandidatureController::class, 'sauvegardeCandidature']);
 Route::get('/mescandidatures',[CandidatureController::class, 'affichageListe'] );
@@ -56,6 +57,7 @@ Route::get('/profil', [CandidatController::class, 'show'])->name('profil.show');
 
 
 Route::middleware(['personnel'])->group(function () {
+    
 Route::get('/espacePersonnel',[PersonnelController::class,'voirEspace'])->name('espacePersonnel');
 Route::post('/modifier/formation-traitement/', [FormationController::class, 'ModifierFormationTraitement']);
 Route::get('/modifier-formation/{id}', [FormationController::class, 'ModifierFormation'])->name(('modifierFormation'));
@@ -63,11 +65,11 @@ Route::get('/Suppformations/{id}', [FormationController::class, 'destroy'])->nam
 Route::get('/formations/ajouter', [FormationController::class, 'AjouterFormation']);
 Route::post('/ajouter/formation-traitement', [FormationController::class, 'AjouterFormationTraitement']);
 Route::get('/formations', [FormationController::class, 'listeDformation'])->name('listeFormation');
+Route::get('/formdetails/{id}', [FormationController::class, 'formationshow'])->name('formdetails');
 Route::get('/listeCandidatPostulez/{formation}',[FormationController::class,'CandidatPostulez']);
 Route::get('/candidature/{candidature}', [CandidatureController::class, 'show'])->name('candidature.show');
 Route::post('/candidature/{id}/accepter', [CandidatureController::class, 'accepter'])->name('candidature.accepter');
 Route::post('/candidature/{id}/refuser', [CandidatureController::class, 'refuser'])->name('candidature.refuser');
-Route::get('/formdetails/{id}', [FormationController::class, 'formationshow'])->name('formdetails');
 Route::get('/personnels/{id}', [PersonnelController::class, 'show'])->name('personnels.espacePerso');
 
 });

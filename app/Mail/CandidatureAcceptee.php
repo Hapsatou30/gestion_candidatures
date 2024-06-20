@@ -12,16 +12,15 @@ use Illuminate\Queue\SerializesModels;
 class CandidatureAcceptee extends Mailable
 {
     use Queueable, SerializesModels;
+
     public $candidat;
-    /**
-     * Create a new message instance.
-     */
-    public function __construct($candidat)
+    public $formation;
+
+    public function __construct($candidat, $formation)
     {
         $this->candidat = $candidat;
-
+        $this->formation = $formation;
     }
-
     /**
      * Get the message envelope.
      */
@@ -42,6 +41,7 @@ class CandidatureAcceptee extends Mailable
             with:[
                 'prenom' => $this->candidat->prenom,
                 'nom' => $this->candidat->nom,
+                'formation' => $this->formation,
             ]
         );
     }

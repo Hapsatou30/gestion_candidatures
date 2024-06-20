@@ -86,14 +86,15 @@
                     <div class="col">
 
                         <a href="{{ route('detailFormation', $formation->id) }}">
-                            <div class="card mb-5" style="width: 15rem;">
-                                <img src="{{ $formation->image }}" class="card-img-top" alt="formation">
+                            <div class="card mb-5" style="width: 15rem; height:250px">
+                                <img src="{{ $formation->image }}" class="card-img-top"
+                                    alt="formation" style="height:200px">
                                 <div class="card-body">
-                                    <p class="card-text">
-                                        {{ $formation->nom }}</p>
+                                    <h6 class="card-text">
+                                        {{ $formation->nom}}</h6>
                                 </div>
                             </div>
-                        </a>
+                         </a>
 
                     </div>
                 @endforeach
