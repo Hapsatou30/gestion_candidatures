@@ -258,4 +258,10 @@
         </div>
 
     </section>
+    <script>
+        // Afficher un pop-up après la redirection vers cette vue
+        window.onload = function() {
+            alert('Votre candidature a été soumise avec succès. Veuillez vérifier vos emails pour plus d\'informations.');
+        };
+    </script>
 @endsection
