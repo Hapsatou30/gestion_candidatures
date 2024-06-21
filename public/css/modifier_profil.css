@@ -30,10 +30,21 @@
     justify-content: space-between;
     padding-top:46px;
 }
+.profil{
+    margin-left: 80px;
+    
+}
+.profil h4{
+    color:var(--couleur-pricinpal);
+}
+.container2{
+    padding-top:80px;
+}
 .form-row{
     display: flex;
     flex-wrap: wrap;
     gap: 20px; /* Espace entre les champs */
+    margin-left: 120px;
 }
 .form-group.col-md-4 {
     display: flex;
@@ -55,11 +66,5 @@
    background-color: var(--couleur-pricinpal); 
    color: #ffffff;
    font-size: var(--taille-titre);
+   margin-left: 350px;
 }
-.btn:hover{
-    width: 223px;
-    height: 57px;
-    background-color: var(--couleur-pricinpal); 
-    color: #ffffff;
-    font-size: var(--taille-titre);
- }
