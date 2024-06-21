@@ -121,7 +121,9 @@
                                             @method('DELETE')
                                             <button type="submit" class="delete-button" title="Supprimer"><i class="fas fa-trash"></i></button>
                                         </form>
-
+                                        <a href="/listeCandidatPostulez/{{ $formation->id }}" class="btn btn-info btn-sm">
+                                            <i class="fas fa-eye"></i> Voir candidats
+                                        </a>   
 
                                         
                                     </td>

@@ -73,3 +73,4 @@ Route::post('/candidature/{id}/refuser', [CandidatureController::class, 'refuser
 Route::get('/personnels/{id}', [PersonnelController::class, 'show'])->name('personnels.espacePerso');
 
 });
+
