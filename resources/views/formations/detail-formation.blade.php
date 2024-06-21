@@ -75,7 +75,7 @@
                 </div>
             </div>
         </div>
-        <a class="btn btn-danger m-5" style="width: 10rem;" id="bouton"
+        <a class="btn btn-danger m-5" style="width: 10rem;  border-radius: 5px;" id="bouton"
             href="{{ route('postuler', $formation->id) }}">POSTULER</a>
     </div>
     <div class="autre-ref">

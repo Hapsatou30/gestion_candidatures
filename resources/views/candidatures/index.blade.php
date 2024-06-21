@@ -69,12 +69,12 @@
     @endif
     <div class="container">
 
-        <div class="row">
+        <div class="row" style="display: flex; align-items:center; justify-content:space-around; margin-top:4%">
             <div class="col-6 image-container">
-                <img src="{{ asset('images/image3.png') }}" alt="">
+                <img src="{{ asset('images/Rectangle 84.jpg') }}" alt="">
             </div>
             <div class="col-6 form-container">
-                <h3>Postuler à la formation : {{ $formation->titre }}</h3>
+                <h3>Postuler à la formation : {{ $formation->nom }}</h3>
                 <form method="POST" action="/sauvegardeCandidature">
                     @csrf
                     <div class="form-group">
