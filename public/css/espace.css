@@ -76,35 +76,39 @@ hr {
     font-size: var(--taille-texte);
 }
 
-.sidebar ul li:hover {
-    background: #fff;
-    width: 100%;
-    margin: 0;
-}
-
-
-.sidebar ul li a:hover .icon-path {
-    fill: var(--couleur-principale);
-}
-
-.sidebar ul li a:hover {
-    color: var(--couleur-principale);
+.sidebar .menu-list a,
+.sidebar .logout-list a {
+    color: white;
+    background-color: transparent;
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    align-items: center;
+    padding: 10px;
     text-decoration: none;
 }
 
-
-/* Style pour les icônes SVG */
-.icon {
-    transition: fill 0.3s ease;
+.sidebar .menu-list a:hover,
+.sidebar .logout-list a:hover {
+    color: #CE0033;
+    background-color: white;
+    border-radius: 5px;
 }
 
-.icon-path {
-    transition: fill 0.3s ease;
+.sidebar .menu-list a.active,
+.sidebar .logout-list a.active {
+    color: #CE0033;
+    background-color: white;
+    border-radius: 5px;
 }
 
-.menu-list li a:hover .icon-path,
-.logout-list li a:hover .icon-path {
-    fill: var(--couleur-principale);
+.sidebar .menu-list a:hover svg .icon-path,
+.sidebar .logout-list a:hover svg .icon-path {
+    fill: #CE0033; 
+}
+
+.sidebar .menu-list a.active svg .icon-path,
+.sidebar .logout-list a.active svg .icon-path {
+    fill: #CE0033; 
 }
 
 

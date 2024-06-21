@@ -24,9 +24,26 @@ header{
 .navbar-brand {
     margin-left: 20px;
 }
-.navbar .nav-item{
+.navbar .nav-item .nav-link{
     color: white;
     font-family:var(--police) ;
     font-size: var(--taille-texte);
     font-weight: bold;
+    background-color: transparent;
+    transition: background-color 0.3s, color 0.3s;
+    border: none;
+}
+
+
+
+.navbar .nav-item .nav-link:hover {
+    color: black;
+    background-color: transparent;
+    border-radius: 5px;
+}
+
+.navbar .nav-item .nav-link.active {
+    color: black;
+    background-color: transparent;
+    border-radius: 5px;
 }
