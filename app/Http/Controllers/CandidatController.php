@@ -126,20 +126,70 @@ class CandidatController extends Controller
         return view('candidats/modifier_profil', compact('candidats'));
     }
    
+// public function ModifierProfilTraitement(Request $request, $id)
+// {
+//     $request->validate([
+//         'nom' => 'required|string|max:255',
+//         'prenom' => 'required|string|max:255',
+//         'date_naissance' => 'required|date',
+//         'telephone' => 'required|string|max:15',
+//         'adresse' => 'required|string|max:255',
+//         'email' => 'required|string|email|max:255|unique:candidats,email,' . $id,
+//         'sexe' => 'required|in:M,F',
+//         'mot_passe' => 'nullable|string|min:8',
+//         'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+//         'cv' => 'nullable|mimes:pdf|max:10000',
+//     ]);
+
+//     $candidat = Candidat::findOrFail($id);
+//     $candidat->nom = $request->nom;
+//     $candidat->prenom = $request->prenom;
+//     $candidat->date_naissance = $request->date_naissance;
+//     $candidat->telephone = $request->telephone;
+//     $candidat->adresse = $request->adresse;
+//     $candidat->email = $request->email;
+//     $candidat->sexe = $request->sexe;
+
+//     if ($request->filled('mot_passe')) {
+//         $candidat->mot_passe = bcrypt($request->mot_passe);
+//     }
+
+//     if ($request->hasFile('photo')) {
+//         // Supprimer l'ancienne photo si elle existe
+//         if ($candidat->photo) {
+//             Storage::disk('public')->delete($candidat->photo);
+//         }
+//         $photoPath = $request->file('photo')->store('photos', 'public');
+//         $candidat->photo = $photoPath;
+//     }
+
+//     if ($request->hasFile('cv')) {
+//         // Supprimer l'ancien CV s'il existe
+//         if ($candidat->cv) {
+//             Storage::disk('public')->delete($candidat->cv);
+//         }
+//         $cvPath = $request->file('cv')->store('cvs', 'public');
+//         $candidat->cv = $cvPath;
+//     }
+
+//     $candidat->save();
+
+//     return redirect()->route('profil.show')->with('success', 'Profil mis à jour avec succès');
+// }
 public function ModifierProfilTraitement(Request $request, $id)
 {
-    $request->validate([
-        'nom' => 'required|string|max:255',
-        'prenom' => 'required|string|max:255',
-        'date_naissance' => 'required|date',
-        'telephone' => 'required|string|max:15',
-        'adresse' => 'required|string|max:255',
-        'email' => 'required|string|email|max:255|unique:candidats,email,' . $id,
-        'sexe' => 'required|in:M,F',
-        'mot_passe' => 'nullable|string|min:8',
-        'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'cv' => 'nullable|mimes:pdf|max:10000',
-    ]);
+    // $request->validate([
+    //     'nom' => 'required|string|max:255',
+    //     'prenom' => 'required|string|max:255',
+    //     'date_naissance' => 'required|date',
+    //     'telephone' => 'required|string|max:15',
+    //     'adresse' => 'required|string|max:255',
+    //     'email' => 'required|string|email|max:255|unique:candidats,email,' . $id,
+    //     'sexe' => 'required|in:M,F',
+    //     'mot_passe' => 'nullable|string|min:8',
+    //     'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    //     'cv' => 'nullable|mimes:pdf|max:10000',
+    // ]);
 
     $candidat = Candidat::findOrFail($id);
     $candidat->nom = $request->nom;
