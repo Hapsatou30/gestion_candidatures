@@ -69,7 +69,7 @@
                         value="{{ old('cv', $candidats->cv) }}">
                 </div>
                 <div class=" col-md-4">
-                    <label>Sexe</label>
+                    <label>Genre</label>
                     <div>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="sexe" id="sexe_m" value="M" {{ old('sexe', $candidats->sexe) == 'M' ? 'checked' : '' }}>
