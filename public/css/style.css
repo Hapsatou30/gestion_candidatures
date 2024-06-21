@@ -29,6 +29,11 @@
     line-height: 42px;
     margin-bottom: 30px;
 }
+.carousel-item .texte{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .carousel-item span{
     color: black;
 }
@@ -39,13 +44,22 @@
     font-size: var(--taille-texte);
     margin-bottom: 40px;
 }
-.carousel-item .btn-custom{
+.carousel-item a{
     width: 200px;
     height: 50px;
     margin-left: 20px;
+    border-radius: 5px;
     background-color: var(--couleur-pricinpal);
     color: white;
     font-size: var(--taille-texte); 
+} 
+.carousel-item button{
+  width: 200px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: var(--couleur-pricinpal);
+  color: white;
+  font-size: var(--taille-texte)
 }
 .carousel-item .btn-custom:hover{
     width: 200px;
@@ -94,6 +108,23 @@
     font-size: var(--taille-titre);
     margin-left: 20px;
 }
+ .bouton a{
+  width: 300px;
+  height: 50px;
+  margin-left: 20px;
+  border-radius: 5px;
+  background-color: var(--couleur-pricinpal);
+  color: white;
+  font-size: var(--taille-texte); 
+} 
+.bouton button{
+width: 300px;
+height: 50px;
+border-radius: 5px;
+background-color: var(--couleur-pricinpal);
+color: white;
+font-size: var(--taille-texte)
+}
 .paragraphe{
     width: 800px;
     margin-left: 20px;
@@ -128,28 +159,29 @@
 }
 #impact {
     display: flex;
-    align-items: center;
-    justify-content: center;
     text-align: center;
     margin-top: 50px;
   }
   
   #impact .container {
     color: white;
+    margin-top: 2%;
   }
   
   #impact .container h2 {
     color: white;
     text-align: center;
     font-size: var(--taille-titre);
-    margin-top: -30px;
+  
   }
   
   .counters {
     display: flex;
+    align-items: center;
+    text-align: center;
     justify-content: space-around;
-    gap: 20px; /* Use gap to manage spacing between counters */
-    margin-top: 20px;
+    gap: 20px;
+    margin-top: 10%;
   }
   
   .counter {
@@ -220,32 +252,46 @@
     font-size: 2rem; /* Taille des icônes */
     color: var(--couleur-pricinpal); /* Couleur des icônes */
   }
-  #partenaires{
+  #partenaires {
     margin-top: 50px;
-  }
-  #partenaires h2{
+}
+
+#partenaires h2 {
     color: black;
     text-align: center;
     font-size: var(--taille-titre);
     margin-bottom: 30px;
-  }
-  .gallery-container {
-    overflow: hidden;
-  }
-  
-  .gallery {
-    display: flex;
+}
+
+
+
+#partenaires .carousel-item .col {
+    padding: 0 10px; /* Espacement entre les images */
+}
+
+#partenaires .carousel-item img {
     width: 100%;
-    animation: scrollGallery 20s linear infinite; /* Défilement automatique */
-  }
-  
-  .gallery img {
-    width: 200px; /* Ajuster la largeur des images selon vos besoins */
     height: auto;
-    margin-right: 20px; /* Espacement entre les images */
-  }
-  
-        /* Styles pour le pop-up personnalisé */
+    margin-right: 20px; 
+}
+
+#partenaires .carousel-control-prev-icon,
+#partenaires .carousel-control-next-icon {
+    background-color: black; /* Changez la couleur selon vos besoins */
+}
+
+#partenaires .carousel-indicators [data-bs-target] {
+    background-color: black; /* Changez la couleur selon vos besoins */
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: black; /* Changez la couleur selon vos besoins */
+}
+
+.carousel-indicators [data-bs-target] {
+    background-color: black; /* Changez la couleur selon vos besoins */
+}
+
 .custom-popup {
   display: none; /* Par défaut, le pop-up est caché */
   position: fixed;
@@ -281,6 +327,22 @@
 .close-btn:hover {
   color: #000;
 }
+.carousel-control-prev,
+.carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto; 
+}
+
+.carousel-control-prev {
+    left: 0;
+}
+
+.carousel-control-next {
+    right: 0;
+}
+
 
   @keyframes scrollGallery {
     0% {

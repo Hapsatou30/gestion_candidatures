@@ -32,7 +32,7 @@
         <header>
             <nav class="navbar navbar-expand-lg cusSticky">
                 <a class="navbar-brand ml-5" href="#" data-abc="true"><img src="{{ asset('images/logo.png') }}"
-                        alt="logo" width="90"></a>
+                        alt="logo" width="80"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
                     aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -55,7 +55,7 @@
                 <div class="bouton">
                     @guest <!-- Vérifie si l'utilisateur n'est pas connecté -->
                         <a href="{{ route('login') }}" class="btn me-5"
-                            style="background-color: #ffffff; color:#CE0033">Connexion</a>
+                            style="background-color: #ffffff; color:#CE0033;  border-radius:5px; width:130px">Connexion</a>
                     @else
                         <!-- Si l'utilisateur est connecté, affiche le bouton de déconnexion -->
                         <div class="dropdown">
