@@ -94,26 +94,50 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Inscription dans les 24 h</h5>
-                            <p class="card-text">{{ $candidatureCount }}</p>
+                        <div class="row">
+                            <div class="col-4 p-3">
+                                <img src="{{ asset('images/new.png') }}" alt="">
+                            </div>
+                            <div class="col-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Inscription dans les 24 h</h5>
+                                    <p class="card-text">{{ $candidatureCount }}</p>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Nombre de Candidature</h5>
-                            <p class="card-text">{{ $nbrCandidat }}</p>
+                        <div class="row">
+                            <div class="col-4 p-3">
+                                <img src="{{ asset('images/canditature.png') }}" alt="" srcset="">
+                            </div>
+                            <div class="col-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Nombre de Candidature</h5>
+                                    <p class="card-text">{{ $nbrCandidat }}</p>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Candidature Vérifié</h5>
-                            <p class="card-text">{{ $verifieCandidatureCount }}</p>
+                        <div class="row">
+                            <div class="col-4 p-3">
+                                <img src="{{ asset('images/verif.png') }}" alt="">
+                            </div>
+                            <div class="col-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Candidature Vérifié</h5>
+                                    <p class="card-text">{{ $verifieCandidatureCount }}</p>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>
