@@ -96,9 +96,7 @@ class CandidatController extends Controller
             return redirect()->intended('/'); // Rediriger vers la page d'accueil après connexion réussie
         } else {
             // Le mot de passe ne correspond pas ou l'utilisateur n'existe pas
-            return back()->withErrors([
-                'email' => 'Les informations d\'identification ne correspondent pas.',
-            ])->withInput();
+            return back();
         }
         
     }

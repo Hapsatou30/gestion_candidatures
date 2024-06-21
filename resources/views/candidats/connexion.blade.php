@@ -102,16 +102,7 @@
 </head>
 
 <body>
-     <!-- Affichage des messages d'erreur -->
-     @if ($errors->any())
-     <div class="alert alert-danger">
-         <ul>
-             @foreach ($errors->all() as $error)
-                 <li>{{ $error }}</li>
-             @endforeach
-         </ul>
-     </div>
- @endif
+
 
     <div class="container">
         <div class="image-container"></div>
@@ -124,17 +115,31 @@
                 @csrf
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="email" value="{{ old('email') }}">
+                    <input type="email" id="email" name="email" placeholder="Email"
+                           class="form-control @error('email') is-invalid @enderror"
+                           value="{{ old('email') }}" required autocomplete="email" autofocus>
+                    @error('email')
+                    <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="mot_passe">Mot de passe</label>
-                    <input type="password" id="mot_passe" name="mot_passe" placeholder="mot de passe">
+                    <input type="password" id="mot_passe" name="mot_passe" placeholder="Mot de passe"
+                           class="form-control @error('mot_passe') is-invalid @enderror"
+                           required autocomplete="current-password">
+                    @error('mot_passe')
+                    <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <a href="#">Mot de passe oublié?</a>
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="Connexion">
+                    <input type="submit" value="Connexion" class="btn btn-primary">
                 </div>
             </form>
             <div class="footer-text">
