@@ -19,6 +19,11 @@
 </head>
 
 <body>
+    @if (session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
     <header>
         <nav class="navbar navbar-expand-lg cusSticky">
             <a class="navbar-brand ml-5" href="#" data-abc="true"><img src="{{ asset('images/logo.png') }}"

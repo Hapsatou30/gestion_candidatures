@@ -59,11 +59,11 @@
 
     </style>
 
-    @if (session('error'))
+    {{-- @if (session('error'))
         <div class="alert alert-danger">
             {{ session('error') }}
         </div>
-    @endif
+    @endif --}}
     <section style="margin-top:60px">
         <div class="container" style="background-color:#CE0033; width:98%;">
             <div class="container-fluid" style="background-color:#ffffff; width:100%; border-radius:50px;">

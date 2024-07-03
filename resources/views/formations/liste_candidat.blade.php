@@ -2,11 +2,11 @@
 
 @section('content')
 @section('content')
-    @if (session('error'))
+    {{-- @if (session('error'))
         <div class="alert alert-danger">
             {{ session('error') }}
         </div>
-    @endif
+    @endif --}}
     <a href="/formations" class="btn btn-danger">Retour </a>
     <section class="contenu">
         <div class="container" style="background-color:#CE0033; width:98%;">

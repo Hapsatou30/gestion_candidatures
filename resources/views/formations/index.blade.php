@@ -1,11 +1,11 @@
 @extends('layouts.app')
 @section('content')
 @section('content')
-    @if (session('error'))
+    {{-- @if (session('error'))
         <div class="alert alert-danger">
             {{ session('error') }}
         </div>
-    @endif
+    @endif --}}
     <main class="container">
         <div class="banniere text-start">
             <div class="row d-flex">

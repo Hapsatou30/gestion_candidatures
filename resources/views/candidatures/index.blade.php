@@ -62,11 +62,11 @@
         }
     </style>
 @section('content')
-    @if (session('error'))
+    {{-- @if (session('error'))
         <div class="alert alert-danger">
             {{ session('error') }}
         </div>
-    @endif
+    @endif --}}
     <div class="container">
 
         <div class="row" style="display: flex; align-items:center; justify-content:space-around; margin-top:4%">

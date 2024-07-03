@@ -1,10 +1,10 @@
 @extends('layouts.sidebar')
 @section('content')
-@if (session('error'))
+{{-- @if (session('error'))
     <div class="alert alert-danger">
         {{ session('error') }}
     </div>
-@endif
+@endif --}}
     <style>
         .container {
             display: flex;
