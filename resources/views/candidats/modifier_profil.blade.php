@@ -21,14 +21,14 @@
                     <label for="photo"></label>
                     <input type="file" id="photo" name="photo" class="form-control">
                     @if ($candidats->photo)
-                        <img src="{{ asset('storage/' . $candidats->photo) }}" alt="Photo de profil actuelle"
+                        <img src="{{ asset('storage/photos' . $candidats->photo) }}" alt="Photo de profil actuelle"
                             style="max-width: 100px; margin-top: 10px;  border-radius: 50%;">
                     @endif
                 </div>
         </div>
         <div class="container2">
             <div class="form-row">
-               
+
                 <div class="form-group col-md-4">
                     <label for="nom">Nom:</label>
                     <input type="text" id="nom" name="nom" class="form-control"
@@ -81,7 +81,7 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>
             <br>
             <button type="submit" class="btn">Enregistrer</button>

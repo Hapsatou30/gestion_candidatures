@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ asset('css/nav-bar.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="{{ asset('css/candidature.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -13,9 +12,11 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ asset('css/nav-bar.css') }}">
+
     <link rel="stylesheet" href="{{ asset('css/formation.css') }}">
     <title>Gestion des candidatures</title>
-   
+
 </head>
 
 <body>
@@ -36,7 +37,7 @@
             <div class="container justify-content-center">
                 <ul class="navbar fs-3 navbar-nav justify-content-center">
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="/" data-abc="true">Accueil</a>
+                        <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="{{ route('accueil') }}" data-abc="true">Accueil</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ request()->is('formation') ? 'active' : '' }}" href="/formation" data-abc="true">Formations</a>
@@ -56,7 +57,7 @@
                 @else
                 <!-- Si l'utilisateur est connecté, affiche le bouton de déconnexion -->
                 <div class="dropdown">
-                    <a class="dropdown-toggle px-5" href="#" role="button" data-bs-toggle="dropdown"
+                    <a class="dropdown-toggle px-5" href="#dropdown" id="dropdown" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         <img class="rounded-circle" src="{{ asset('storage/' . Auth::user()->photo) }}"
                             style="width:50px">
